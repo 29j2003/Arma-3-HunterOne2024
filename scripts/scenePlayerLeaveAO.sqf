@@ -1,0 +1,1 @@
+//scene script when player leaves AO 

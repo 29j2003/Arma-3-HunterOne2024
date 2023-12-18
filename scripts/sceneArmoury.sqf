@@ -1,0 +1,1 @@
+// Scene script for the Amoury between Amoury guy and player 

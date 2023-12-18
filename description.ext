@@ -1,0 +1,227 @@
+class CfgSounds
+{
+	sounds[] = {}; 
+
+///////////////////////////////////////////////////////////////// SFX: ///////////////////////////////////////////////////////////////// 
+	class DoorKnock
+	{
+		name = "DoorKnockMetal";						
+		sound[] = { "sfx\KnockDoorMetal.ogg", 1, 1, 100 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class FireFight01
+	{
+		name = "FireFight01";						
+		sound[] = { "\sfx\battlefield_explosions1.wss", 1, 1, 6000 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class FireFight02
+	{
+		name = "FireFight02";						
+		sound[] = { "\sfx\battlefield_firefight1.wss", 1, 1, 6000 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+///////////////////////////////////////////////////////////////// Ambient Dubbing (HQ): ///////////////////////////////////////////////////////////////// 
+	class Greet01
+	{
+		name = "Greet01";						
+		sound[] = { "va\a_hub_350_greet_player_ALPB_0.ogg", 2, 1, 100 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class Greet02
+	{
+		name = "Greet02";						
+		sound[] = { "va\a_hub_350_greet_player_BRA_0.ogg", 2, 1, 100 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class Greet03
+	{
+		name = "Greet03";						
+		sound[] = { "va\a_hub_350_greet_player_ALP_0.ogg", 2, 1, 100 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class Greet04
+	{
+		name = "Greet04";						
+		sound[] = { "va\a_hub_350_greet_player_CHA_0.ogg", 2, 1, 100 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class Ambient01
+	{
+		name = "Ambient01";						
+		sound[] = { "va\c_in1_14_ambient_talk_04_ABA_0.ogg", 3, 1, 100 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class Ambient02
+	{
+		name = "Ambient02";						
+		sound[] = { "va\c_in1_14_ambient_talk_04_ABB_0.ogg", 3, 1, 100 };				
+		titles[] = { 0, "" };		// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+	class Ambient03
+	{
+		name = "Ambient03";						
+		sound[] = { "va\c_in1_14_ambient_talk_04_ABB_1.ogg", 3, 1, 100 };				
+		titles[] = { 0, "" };		
+
+		titlesFont = "LCD14";		
+		titlesSize = 0;			
+
+		forceTitles = 0;			
+		titlesStructured = 0;		
+	};
+	///////////////////////////////////////////////////////////////// Dubbing (Brief): ///////////////////////////////////////////////////////////////// 
+};
+
+class CfgIdentities
+{
+	class player
+	{
+		face = "WhiteHead_07";
+		glasses = "None"; 
+		name = "James Hawk";
+		nameSound = "James";
+		pitch = 0.99;
+		speaker = "Male01ENG";
+	};
+	class coPilot
+	{
+		face = "WhiteHead_04";
+		glasses = "None"; 
+		name = "Matthew Frost";
+		nameSound = "Frost";
+		pitch = 1;
+		speaker = "Male02ENG";
+	};
+};
+
+class CfgFunctions  
+{  
+    class TAG  
+    {  
+        tag = "TAG";   
+        class functions
+        {  
+            file = "functions"; 
+            class ambientFirefight  
+            {  
+                description = "AmbientFireFight function";  
+            };  
+        };  
+    }; 
+};
+
+
+
+
+class CfgSentences
+{
+	class TALKS
+	{
+		class Example01
+		{
+			file = "kbTell\bikbexample.bikb";
+			#include "kbTell\bikbexample.bikb"
+		};
+	};
+}; 
+// Example BIKB/KBTELL setup, which wasn't used at the end. 
+
+briefing = 0;
+
+
+class CfgDebriefing
+{  
+	class WINFULL
+	{
+		title = "Mission Completed";
+		subtitle = "";
+		description = "You did it or something.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class HELODEAD
+	{
+		title = "Mission Failed";
+		subtitle = "";
+		description = "Your helicopter has been destroyed.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class DELTADEAD
+	{
+		title = "Mission Failed";
+		subtitle = "";
+		description = "Delta was decimated.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class GHOSTDEAD
+	{
+		title = "Mission Failed";
+		subtitle = "";
+		description = "Ghost has been destroyed.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+};
+
+// [endName, isVictory, fadeType, playMusic, cancelTasks] call BIS_fnc_endMission

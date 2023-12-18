@@ -1,0 +1,15 @@
+class Sentences
+{
+	class Briefing_P1 
+	{
+		text = "All radios on Freq. Niner Zero Point Two, this is Hades. Requesting immediate evac, how copy?!";
+		speech[] = { "\scripts\dubbing\BriefP01.ogg" };
+		class Arguments {};
+		actor = "ciaP";
+	};
+};
+
+class Arguments {};
+class Special {};
+startWithVocal[] = {hour};
+startWithConsonant[] = {europe, university};
