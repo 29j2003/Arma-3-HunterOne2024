@@ -186,49 +186,49 @@ briefing = 0;
 
 class CfgDebriefing
 {  
-	class WINFULL
+	class Win
 	{
 		title = "Mission Completed";
-		subtitle = "";
-		description = "You did it or something.";
+		subtitle = "All objectives completed.";
+		description = "Hunter-One was able to complete all primary objectives, supporting both Delta and Nomad. Mission Succes.";
 		pictureBackground = "";
-		picture = "b_inf";
+		picture = "";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
-	class HELODEAD
+	class HunterDead
 	{
 		title = "Mission Failed";
 		subtitle = "";
-		description = "Your helicopter has been destroyed.";
-		pictureBackground = "";
-		picture = "b_inf";
+		description = "Helicopter destroyed.";
+		pictureBackground = "Your Blackfoot attack helicopter has been destroyed. Mission Failed.";
+		picture = "KIA";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
-	class DELTADEAD
+	class DeltaDead
 	{
 		title = "Mission Failed";
-		subtitle = "";
-		description = "Delta was decimated.";
-		pictureBackground = "";
-		picture = "b_inf";
+		subtitle = "Delta was decimated.";
+		description = "Hunter-One was to slow - Delta has been killed. Mission Failed.";
+		pictureBackground = ""; // img\deltaEnd.paa
+		picture = "KIA";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
-	class GHOSTDEAD
+	class GhostDead
 	{
 		title = "Mission Failed";
-		subtitle = "";
-		description = "Ghost has been destroyed.";
+		subtitle = "Ghost 2-1 has been destroyed.";
+		description = "Ghost 2-1 has been killed in action - Hunter-One wasn't able to defend them. Mission Failed.";
 		pictureBackground = "";
-		picture = "b_inf";
+		picture = "KIA";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class NomadDead
 	{
 		title = "Mission Failed";
-		subtitle = "";
-		description = "Nomad has been killed.";
+		subtitle = "Nomad has been killed.";
+		description = "Squad Nomad was killed - Hunter-One wasn't fast enough in support them. Mission Failed.";
 		pictureBackground = "";
-		picture = "b_inf";
+		picture = "KIA";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 };

@@ -1,10 +1,5 @@
-// Scene where Delta enters Helo: 
-
-// Delta: Boarding helo... (or something along that) 
-
-
-
-// if AI gets stuck again do waitUntiL, which makes them teleport in and makes the vehicle locked after 80 seconds
+// if AI gets stuck again do waitUntiL, which makes them teleport in and makes the vehicle locked after 60/80 seconds
+{_x assignAsCargo evacHELO} foreach units group HO_SquadLead;
 sleep 60; 
 
 if (!triggerActivated Task08_END01) then
