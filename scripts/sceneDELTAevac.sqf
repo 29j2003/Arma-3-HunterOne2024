@@ -22,12 +22,7 @@ else
 
 
 
-Version #27
 
-- fixed a error
-- small typo fixes
-- some timing changes 
-- fixed 
 
 
 

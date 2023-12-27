@@ -222,6 +222,15 @@ class CfgDebriefing
 		picture = "b_inf";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
+	class NomadDead
+	{
+		title = "Mission Failed";
+		subtitle = "";
+		description = "Nomad has been killed.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
 };
 
 // [endName, isVictory, fadeType, playMusic, cancelTasks] call BIS_fnc_endMission
