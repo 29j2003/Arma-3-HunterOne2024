@@ -10,3 +10,7 @@ taskReArm = true;
 sleep 6; 
 player sideChat "Hunter-One copies, out."; 
 //playSound
+
+reArmNewOpen == true; 
+sleep 1; 
+officerBrief sideChat "Thunder to all Units. A new resupply point is now available near Charkia!"; 

@@ -1,6 +1,6 @@
 // Teleport script for backup CSAT/AAF forces
 
-
+sleep 5; 
 // defining the teleporters with the placed object
 private _teleport1 = getPos pos1; 
 private _teleport2 = getPos pos2;

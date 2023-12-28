@@ -10,7 +10,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -22,7 +22,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -34,7 +34,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -47,7 +47,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -59,7 +59,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -71,7 +71,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -83,7 +83,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -95,7 +95,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -107,7 +107,7 @@ class CfgSounds
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
-		titlesSize = 0;			// OFP:R - titles font size
+		titlesSize = 0;				// OFP:R - titles font size
 
 		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
 		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
@@ -233,4 +233,5 @@ class CfgDebriefing
 	};
 };
 
-// [endName, isVictory, fadeType, playMusic, cancelTasks] call BIS_fnc_endMission
+// ["endName", isVictory, fadeType, playMusic, cancelTasks] call BIS_fnc_endMission
+
