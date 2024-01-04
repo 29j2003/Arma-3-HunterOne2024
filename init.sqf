@@ -1,4 +1,4 @@
-//execVM "fn_introPictures.sqf"; 
+//execVM "fn_introPictures.sqf";
 execVM "scripts\sceneINTRO.sqf"; 
 
 {

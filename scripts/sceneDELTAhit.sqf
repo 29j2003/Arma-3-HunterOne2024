@@ -19,18 +19,18 @@ HO_SquadLead sideChat "Immediate fire-support needed, or we’re done for!";
 waitUntil {  ({alive _x} count (units natoSQUAD)) == 1  }; // = 1 remaining (SL stays alive for Voice Line, then gets killed of if needed) 
 HO_SquadLead sideChat "They’ve broken through, multiple casualties - we’re goi—";
 //playSound 
-sleep 7; 
+sleep 5; 
 
 officerBrief sideChat "Thunder to Delta, report in!";
 //playSound 
-sleep 4; 
+sleep 3; 
 
 officerBrief sideChat "Delta do you read me!";
 //playSound 
 sleep 3;
 officerBrief sideChat "Thunder to Hunter-One, contact to Delta has been lost.";
 //playSound 
-sleep 5; 
+sleep 4; 
 
 [DELTADEAD, false, true, true, false] call BIS_fnc_endMission
 /* 

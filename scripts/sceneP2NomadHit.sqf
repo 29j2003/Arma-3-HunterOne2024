@@ -1,25 +1,26 @@
 // Scene Script for Nomad Squad where they have a voice line each time they get hit to a specific %
 
-waitUntil {  ({alive _x} count (units natoNOMADS)) < 10  }; // 80 percent
-NOMAD sideChat "";
+waitUntil {  ({alive _x} count (units natoNOMADS)) < 6  }; // 80 percent
+nomadSL sideChat "";
 //playSound 
 
-waitUntil {  ({alive _x} count (units natoNOMADS)) < 7  }; // 60 percent
-NOMAD sideChat "";
+
+waitUntil {  ({alive _x} count (units natoNOMADS)) < 4  }; // 
+nomadSL sideChat "";
 //playSound 
 
-waitUntil {  ({alive _x} count (units natoNOMADS)) < 5  }; // 40 percent
-NOMAD sideChat "";
-//playSound 
-
-waitUntil {  ({alive _x} count (units natoNOMADS)) < 3  }; // 20 percent
-NOMAD sideChat "";
+waitUntil {  ({alive _x} count (units natoNOMADS)) < 2  }; // 20 percent
+nomadSL sideChat "";
 //playSound 
 
 waitUntil {  ({alive _x} count (units natoNOMADS)) == 1  }; // = 1 remaining (SL stays alive for Voice Line, then gets killed of if needed) 
-NOMAD sideChat "";
+nomadSL sideChat "";
+nomadSL allowDamage true; 
+
+sleep 2; 
+nomadSL setDamage 1;  
 //playSound 
-sleep 7; 
+sleep 5; 
 
 officerBrief sideChat "";
 //playSound 
