@@ -3,26 +3,25 @@
 titleCut ["", "BLACK FADED", 999];
 sleep 2;
 
-line1 = ["PA", "Lt. Hawk, please report to Col. Rollins.", introPA];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
+line1 = ["PA", "Lt. Hawk, please report to Col. Rollins.", introPA, 3, 1, "UI"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+
 sleep 7; 
 playSound3D [getMissionPath "sfx\KnockDoorMetal.ogg", introKNOCKER, false, getPosASL introKNOCKER, 4, 1, 0];
-line1 = ["PA", "Lt. James Hawk, please report to Col. Rollins.", introPA];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
+line1 = ["PA", "Lt. James Hawk, please report to Col. Rollins.", introPA, 1, 1, "UI"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 sleep 3; 
 
-
-
-line1 = ["Drawn", "James!", introKNOCKER];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
-
-
+line1 = ["Drawn", "James!", introKNOCKER, 1, 1, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 sleep 5; 
 
 playSound3D [getMissionPath "sfx\KnockDoorMetal.ogg", introKNOCKER, false, getPosASL introKNOCKER, 4, 1, 0]; 
 
-line1 = ["Drawn", "James, your up!", introKNOCKER];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Drawn", "James, your up!", introKNOCKER, 1, 1, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 
 introGo = true; 
 titleCut ["", "BLACK IN", 6];
@@ -39,7 +38,7 @@ Task01activ = true;
 _building = cargo01; // replace cargo01 with your building's variable name
 _door = "Door_1_sound_source"; // replace with the animation name of the door you want to check
 
-// Use waitUntil to pause the script until the door is open
+
 waitUntil {
     _phase = _building animationSourcePhase _door;
     _phase > 0

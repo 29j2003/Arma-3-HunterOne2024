@@ -151,15 +151,23 @@ class CfgIdentities
 
 class CfgFunctions  
 {  
-    class TAG  
+    class HO  
     {  
-        tag = "TAG";   
+        tag = "HO";   
         class functions
         {  
             file = "functions"; 
             class ambientFirefight  
             {  
-                description = "AmbientFireFight function";  
+                description = "Ambient firefight function";  
+            };  
+			class simpleConv  
+            {  
+                description = "Conversation script by R3vo and modified by Doggifast";  
+            };  
+			class resizePIP  
+            {  
+                description = "Function to resize PIP that gets created by LiveFeed";  
             };  
         };  
     }; 

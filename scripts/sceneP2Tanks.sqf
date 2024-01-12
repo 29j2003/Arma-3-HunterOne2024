@@ -34,6 +34,8 @@ aafMBT02 setDir _dir02;
 [LiveDroneSource, aafMBT01, player] call BIS_fnc_liveFeed;
 BIS_liveFeed camPrepareFOV 0.1;
 BIS_liveFeed camCommitPrepared 0;
+[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 
+
 
 waitUntil {!alive aafMBT01}; 
 call BIS_fnc_liveFeedTerminate;
@@ -42,6 +44,8 @@ sleep 2;
 [LiveDroneSource, aafMBT02, player] call BIS_fnc_liveFeed;
 BIS_liveFeed camPrepareFOV 0.1;
 BIS_liveFeed camCommitPrepared 0;
+[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 
+
 
 waitUntil {!alive aafMBT02}; 
 call BIS_fnc_liveFeedTerminate;

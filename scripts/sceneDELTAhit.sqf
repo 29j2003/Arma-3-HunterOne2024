@@ -1,52 +1,42 @@
 // Scene script for Delta Section/Squad/Platoon where it has mutiple waitUntils for each step when they get hurt, killed etc.
 
 waitUntil {  ({alive _x} count (units natoSQUAD)) < 10  }; // 80 percent
-HO_SquadLead sideChat "We’re sustaining losses!";
-//playSound 
+
+line1 = ["Delta Lead", "We’re sustaining losses!", HO_SquadLead, 3, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 
 waitUntil {  ({alive _x} count (units natoSQUAD)) < 7  }; // 60 percent
-HO_SquadLead sideChat "We’re being decimated out here!";
-//playSound 
+
+line1 = ["Delta Lead", "We’re being decimated out here!", HO_SquadLead, 3, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 
 waitUntil {  ({alive _x} count (units natoSQUAD)) < 5  }; // 40 percent
-HO_SquadLead sideChat "We’re at our breaking point!";
-//playSound 
+
+line1 = ["Delta Lead", "We’re at our breaking point!", HO_SquadLead, 3, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 
 waitUntil {  ({alive _x} count (units natoSQUAD)) < 3  }; // 20 percent
-HO_SquadLead sideChat "Immediate fire-support needed, or we’re done for!";
-//playSound 
+
+line1 = ["Delta Lead", "Immediate fire-support needed, or we’re done for!", HO_SquadLead, 4, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 
 waitUntil {  ({alive _x} count (units natoSQUAD)) == 1  }; // = 1 remaining (SL stays alive for Voice Line, then gets killed of if needed) 
-HO_SquadLead sideChat "They’ve broken through, multiple casualties - we’re goi—";
-//playSound 
+
+line1 = ["Delta Lead", "They’ve broken through, multiple casualties - we’re goi—", HO_SquadLead, 2, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 5; 
 
-officerBrief sideChat "Thunder to Delta, report in!";
-//playSound 
+line1 = ["Thunder", "Thunder to Delta, report in!", officerBrief, 2, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 3; 
 
-officerBrief sideChat "Delta do you read me!";
-//playSound 
+line1 = ["Thunder", "Delta do you read me!", officerBrief, 2, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 3;
-officerBrief sideChat "Thunder to Hunter-One, contact to Delta has been lost.";
-//playSound 
-sleep 4; 
 
-[DELTADEAD, false, true, true, false] call BIS_fnc_endMission
-/* 
-Delta bei Hit sachen: 
+line1 = ["Thunder", "Thunder to Hunter-One, contact to Delta has been lost.", officerBrief, 3, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+sleep 3; 
 
-80%:We’re sustaining losses! (firefight sfx +) 
+["DeltaDead", false, true, true, false] call BIS_fnc_endMission; 
 
-60%: We’re being decimated out here!  (firefight sfx +) 
-
-40%: We’re at our breaking point! (firefight sfx und auch extra voice line ein gebacked in main line wo man nur hört: MEDICCCC!)
-
-20%: Immediate fire-support needed, or we’re done for! (firefight sfx +) 
-
-0% bzw. = 1 Unit: They’ve broken through, multiple casualties - we’re goi—static (firefight sfx und static sound und dazu noch CSAT stimmen ggf.)
-
-Dann von HQ: Delta report in! Delta! 
-
-Mission over
-*/

@@ -1,17 +1,18 @@
 // play out when player enters AO
-player sideChat "Hunter-One to Thunder, we're about to enter the AO.";
-//playSound
+
+line1 = ["You", "Hunter-One to Thunder, we're about to enter the AO.", player, 3, 1, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 5; 
 
-officerBrief sideChat "Understood - patching you through to Delta.";
-//playSound
+line1 = ["Thunder", "Understood - patching you through to Delta.", officerBrief, 3, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 6;
 
 // Delta to Hunter, CSAT forces have been marked with red smoke - we need fire support now! 
-HO_SquadLead sideChat "Delta to Hunter-One, CSAT forces have been marked with red smoke - we need fire support now! ";
-//playSound 
+line1 = ["Thunder", "Delta to Hunter-One, CSAT forces have been marked with red smoke - we need fire support now!", officerBrief, 3, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 6;
 
-player sideChat "Copy Delta, keep your heads down!";
-//playSound 
+line1 = ["You", "Copy Delta, keep your heads down!", player, 3, 1, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 6;

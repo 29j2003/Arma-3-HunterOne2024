@@ -1,3 +1,6 @@
-player sideChat "Hunter-One to Thunder, enemy Gunship has been destroyed. Moving back to assist Delta how copy?";
+line1 = ["You", "Hunter-One to Thunder, enemy Gunship has been destroyed. Moving back to assist Delta how copy?", player, 4, 1, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 5; 
-officerBrief sideChat "Recived, good work. Over.";  
+
+line1 = ["Thunder", "Loud and clear, good work Hunter-One. Over.", officerBrief, 4, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;

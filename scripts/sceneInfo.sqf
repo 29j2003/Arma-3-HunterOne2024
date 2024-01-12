@@ -8,7 +8,7 @@
   ["", "<br/>"], // line break 
   ["10th August, 2035", "align = 'left' shadow = '0' size = '0.7'"] 
  ], 
- -0.4, 2 / 2, 
+ -0.45, 2 / 2, 
  true, 
  "<t font='PuristaBold'>%1</t>", 
  [], 

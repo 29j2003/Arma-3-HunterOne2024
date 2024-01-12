@@ -31,5 +31,6 @@ officerBrief sideChat "";
 sleep 3;
 
 
-[NomadDead, false, true, true, false] call BIS_fnc_endMission
+["NomadDead", false, true, true, false] call BIS_fnc_endMission;
+
 

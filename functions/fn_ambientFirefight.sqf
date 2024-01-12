@@ -1,12 +1,47 @@
+/* 
+
+Ambient Firefight function: 
+
+  Author: 29/P4TCH3R 
+  
+  Modified by: Doggifast
+
+  Description:
+   A ambient firefight function to be used for ambient purposes that will get hidden when player gets too close or removed
+   if for example SOA_AmbientFirefight_%1 = false; has been said. 
+
+  Examples: 
+
+   [_logicName, "_weaponBlue", "_magazineBlue", "_weaponRed", "_magazineRed", _distance, _firefightIndex] spawn TAG_fnc_ambientFirefight;
+
+   ["ambientBattle01", "arifle_MX_F", "30Rnd_65x39_caseless_mag_Tracer", 
+   "arifle_Katiba_F", "30Rnd_65x39_caseless_green_mag_Tracer", 400, 1] spawn TAG_fnc_ambientFirefight;
+*/
+
+
+
+
+
 // Functions that creates two units firing at each other, similar to what you can see in TacOps
+// systemCHAT "executes"; 
+params ["_logicName", "_weaponBlue", "_magazineBlue", "_weaponRed", "_magazineRed", "_distance", "_firefightIndex"];
 
-params ["_logicName", "_weaponBlue", "_magazineBlue", "_weaponRed", "_magazineRed", "_distance"];
 
+private _declareGlobalVariableTrue = compile format ["SOA_AmbientFirefight_%1 = true;", _firefightIndex];
+private _declareGlobalVariableFalse = compile format ["SOA_AmbientFirefight_%1 = false;", _firefightIndex];
+private _declareGlobalVariableEnd = compile format ["SOA_AmbientFirefight_%1 = nil;", _firefightIndex];
+call _declareGlobalVariableTrue;
+
+private _getVarFunc = compile format ["SOA_AmbientFirefight_%1", _firefightIndex];
+
+
+// SOA_AmbientFirefight_1 = false;
 // Create soldiers
 private _blueGroup = createGroup west;
 private _redGroup = createGroup east;
 private _blue = _blueGroup createUnit ["B_Soldier_F", getMarkerPos _logicName vectorAdd [2,0,0], [], 0, "NONE"];
 private _red = _redGroup createUnit ["O_Soldier_F", getMarkerPos _logicName vectorAdd [-2,0,0], [], 0, "NONE"];
+
 
 // Set their weapons
 removeAllWeapons _blue;
@@ -52,27 +87,25 @@ _blue forceWeaponFire [_weaponBlue, "Burst"];
 _red forceWeaponFire [_weaponRed, "Burst"];
 
 // Monitor player distance
-[_blue, _red, _distance, _weaponBlue, _weaponRed, _magazineBlue, _magazineRed] spawn {
-    params ["_blue", "_red", "_distance", "_weaponBlue", "_weaponRed", "_magazineBlue", "_magazineRed"];
-    while {alive _blue && alive _red && ambientOn} do {
+
+	testvar = _getVarFunc; 
+    while {alive _blue && alive _red && (call _getVarFunc)} do {
         waitUntil {sleep 5; true}; // Check every 5 seconds
         private _playerPos = getPos player;
         private _fireFightPos = getPos _blue;
         private _distanceToFireFight = _playerPos distance _fireFightPos;
-
+        
         // If player is too close, stop the firefight
-        if (_distanceToFireFight < _distance) then {
+		// systemchat "While Loop"; 
+        if (_distanceToFireFight < _distance) then
+        {
+			// systemchat "Exit One"; 
+            break;
             _blue enableSimulation false;
             _red enableSimulation false;
             _blue hideObject true; 
             _red hideObject true; 
-        } else {
-            _blue enableSimulation true;
-            _red enableSimulation true;
-            _blue hideObject false; 
-            _red hideObject false; 
         };
-
         // Randomly stop shooting for a few seconds
         if (random 1 < 0.5) then {
             _blue enableSimulation false;
@@ -94,4 +127,13 @@ _red forceWeaponFire [_weaponRed, "Burst"];
     _red removeAllEventHandlers "Fired";
     deleteVehicle _blue;
     deleteVehicle _red;
-};
+
+
+if !(call _getVarFunc) exitWith {call _declareGlobalVariableEnd; true};
+
+call _declareGlobalVariableFalse;
+
+// systemChat "Declared False"; 
+
+sleep (random [120, 150, 180]);
+[_logicName, _weaponBlue, _magazineBlue, _weaponRed, _magazineRed, _distance, _firefightIndex] spawn TAG_fnc_ambientFirefight;
