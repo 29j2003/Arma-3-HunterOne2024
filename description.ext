@@ -243,3 +243,38 @@ class CfgDebriefing
 
 // ["endName", isVictory, fadeType, playMusic, cancelTasks] call BIS_fnc_endMission
 
+
+
+
+class CfgHints
+{
+	class Vehicle
+	{
+		// Topic title (displayed only in topic listbox in Field Manual)
+		displayName = "Helicopter Turrets";
+		class HelicopterTurret
+		{
+			// Hint title, filled by arguments from 'arguments' param
+			displayName = "Helicopter Turrets";
+			// Optional hint subtitle, filled by arguments from 'arguments' param
+			displayNameShort = "";
+			// Structured text, filled by arguments from 'arguments' param
+			description = "Mounted turrets like the one on the %3AH-99 Blackfoot%4 helicopter can be operated by both the pilot and the gunner. %1The gunner can independently attack enemy units but can also receive orders by the pilot to attack specific units. %1%2Press %3T%4 to mark a target for the gunner. %1%2Press %3R%4 to cycle between targets. %1%2Press %3F%4 to cycle between the available ammunition.";			
+			
+			tip = "Changing the combat mode of the gunner can help with the independent targeting.";
+			arguments[] = {
+				{ { "getOver" } }, // Double nested array means assigned key (will be specially formatted)
+				{ "name" }, // Nested array means element (specially formatted part of text)
+				"name player" // Simple string will be simply compiled and called, String can also link to localization database in case it starts by str_
+			};
+			// Optional image
+			image = "\a3\ui_f_jets\data\gui\cfg\hints\AircraftTgtCamera_ca.paa";
+			// optional parameter for not showing of image in context hint in mission (default false))
+			noImage = false;
+			// -1 Creates no log in player diary, 0 Creates diary log ( default when not provided )
+			// if a dlc's appID Number is used ( see command getDLCs ) and the user does not have the required dlc installed then the advHint will be replaced with
+			// configfile >> "CfgHints" >> "DlcMessage" >> "Dlc#"; where # is this properties ( dlc appID ) number
+			dlc = -1;
+		};
+	};
+};
