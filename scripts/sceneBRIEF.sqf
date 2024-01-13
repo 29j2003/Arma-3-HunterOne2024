@@ -15,25 +15,25 @@ vehicleFlyBy01 hideObject false;
 
 
 
-line1 = ["Rollins", "I hope you are well rested for this James.", officerBrief, 2, 1, "3D"];
+line1 = ["Rollins", "I hope you are well rested for this James.", officerBrief, 2, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 3; 
+sleep 1; 
 
-line1 = ["You", "Always.", player, 2, 1, "3D"];
+line1 = ["You", "Always.", player, 2, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 3.5; 
+sleep 1; 
 
 ////////////////////////////////
 
-openMap [true, false];
+openMap [true, true];
 [5.0, 0.03, markerPos "natoDELTA"] call BIS_fnc_mapAnimAdd; 
 ["show", ["natoDELTA"]] call BIS_fnc_showMarkers;
 ["show", ["natoDELTAao"]] call BIS_fnc_showMarkers;
 ["natoDELTA", 2, 5] spawn BIS_fnc_blinkMarker; // blinks 10 times using 3 seconds intervals
 
-line1 = ["Rollins", "At 0415, one of our sections got cut off during our ongoing offensive here:", officerBrief, 6, 1, "3D"];
+line1 = ["Rollins", "At 0415, one of our sections got cut off during our ongoing offensive here:", officerBrief, 6, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 7; 
+sleep 2; 
 
 ////////////////////////////////
 
@@ -42,9 +42,9 @@ sleep 7;
 ["show", ["csatMECH"]] call BIS_fnc_showMarkers;
 
 
-line1 = ["Rollins", "They are currently under attack from three different directions by CSAT forces.", officerBrief, 6, 1, "3D"];
+line1 = ["Rollins", "They are currently under attack from three different directions by CSAT forces.", officerBrief, 6, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 7.5; 
+sleep 2; 
 
 
 ////////////////////////////////
@@ -55,9 +55,9 @@ sleep 7.5;
 ["csatINFmain1", getMarkerPos "csatINFwestPos", 6, 4] call BIS_fnc_moveMarker;
 ["csatINF1", getMarkerPos "csatINFPos1", 6, 4] call BIS_fnc_moveMarker;
 
-line1 = ["Rollins", "An infantry squad is advancing from the west,", officerBrief, 5, 1, "3D"];
+line1 = ["Rollins", "An infantry squad is advancing from the west,", officerBrief, 5, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 6; 
+sleep 2; 
 
 ////////////////////////////////
 
@@ -68,9 +68,9 @@ sleep 6;
 ["csatMECH", getMarkerPos "csatMECHPos", 6, 4] call BIS_fnc_moveMarker;
 
 
-line1 = ["Rollins", "While a mechanized unit is pushing down from the north,", officerBrief, 5, 1, "3D"];
+line1 = ["Rollins", "While a mechanized unit is pushing down from the north,", officerBrief, 5, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 6; 
+sleep 2; 
 
 
 ////////////////////////////////
@@ -81,58 +81,54 @@ sleep 6;
 ["csatINFmain2", getMarkerPos "csatINFeastPos", 6, 4] call BIS_fnc_moveMarker;
 ["csatINF2", getMarkerPos "csatINFPos2", 6, 4] call BIS_fnc_moveMarker;
 
-line1 = ["Rollins", "And additional infantry from the east.", officerBrief, 5, 1, "3D"];
-[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 6; 
-
-////////////////////////////////
-
-[2.0, 0.05, markerPos "natoDELTA"] call BIS_fnc_mapAnimAdd; 
-
-line1 = ["Rollins", "They've also spotted an anti-air group in the vicinity.", officerBrief, 5, 1, "3D"];
-[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-
-sleep 6; 
-
-////////////////////////////////
-
-line1 = ["Rollins", "The mission is to provide support to the troops and hold the area until evacuation arrives and	extracts them.", officerBrief, 8, 1, "3D"];
-[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-openMap [false, false];
-sleep 12; 
-
-////////////////////////////////
-
-line1 = ["Rollins", "You'll be operating behind enemy lines, so proceed with caution.", officerBrief, 5, 1, "3D"];
-[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-openMap [false, false];
-sleep 7; 
-
-////////////////////////////////
-
-line1 = ["Rollins", "Your Co-Pilot has been briefed and your Blackfoot is prepped and ready.", officerBrief, 3, 1, "3D"];
+line1 = ["Rollins", "And additional infantry from the east.", officerBrief, 5, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 sleep 2; 
 
 ////////////////////////////////
 
+[2.0, 0.05, markerPos "natoDELTA"] call BIS_fnc_mapAnimAdd; 
+
+line1 = ["Rollins", "They've also spotted an anti-air group in the vicinity.", officerBrief, 5, 0, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+
+sleep 2; 
+
+////////////////////////////////
+
+line1 = ["Rollins", "The mission is to provide support to the troops and hold the area until evacuation arrives and	extracts them.", officerBrief, 8, 1, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+
+sleep 2; 
+
+////////////////////////////////
+
+line1 = ["Rollins", "You'll be operating behind enemy lines, so proceed with caution.", officerBrief, 5, 0, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+openMap [false, false];
+sleep 2; 
+
+////////////////////////////////
+
 officerBrief switchMove "Acts_Briefing_Intro2_Major_2";
-sleep 4; 
+line1 = ["Rollins", "Your Co-Pilot has been briefed and your Blackfoot is prepped and ready.", officerBrief, 3, 0, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+sleep 2; 
 
 ////////////////////////////////
 
-line1 = ["Rollins", "Gear up and help our boys in need!", officerBrief, 3, 1, "3D"];
+line1 = ["Rollins", "Gear up and help our boys in need!", officerBrief, 3, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 4; 
+sleep 2; 
 
 ////////////////////////////////
 
-line1 = ["Rollins", "Dismissed.", officerBrief, 2, 1, "3D"];
+line1 = ["Rollins", "Dismissed.", officerBrief, 2, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 
 
 
-sleep 3; 
+sleep 2; 
 
 ////////////////////////////////
 

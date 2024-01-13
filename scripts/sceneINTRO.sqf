@@ -7,7 +7,7 @@ sleep 2;
 line1 = ["PA", "Lt. Hawk, please report to Col. Rollins.", introPA, 3, 1, "UI"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 
-sleep 7; 
+sleep 2; 
 playSound3D [getMissionPath "sfx\KnockDoorMetal.ogg", introKNOCKER, false, getPosASL introKNOCKER, 4, 1, 0];
 
 line1 = ["PA", "Lt. James Hawk, please report to Col. Rollins.", introPA, 1, 1, "UI"];
@@ -16,7 +16,7 @@ sleep 3;
 
 line1 = ["Drawn", "James!", introKNOCKER, 1, 1, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 5; 
+sleep 2; 
 
 playSound3D [getMissionPath "sfx\KnockDoorMetal.ogg", introKNOCKER, false, getPosASL introKNOCKER, 4, 1, 0]; 
 
