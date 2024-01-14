@@ -1,7 +1,36 @@
 // This scene plays out directly after the intro played. 
-[0, 99999, false, true] call BIS_fnc_cinemaBorder; 
+
 titleCut ["", "BLACK FADED", 999];
-sleep 2;
+
+_video = ["\a3\missions_f_epa\video\a_in2_quotation.ogv"] spawn bis_fnc_playVideo; 
+waitUntil {scriptDone _video}; 
+
+//["Day 2 of the Invasion.",-1,-1,4,1,0,789] spawn BIS_fnc_dynamicText; 
+
+[] spawn 
+{
+	0 fadeMusic 0;
+	3 fadeMusic 1; 
+	playMusic ["C_EA_RadioMusic2", 28];
+	sleep 20; 
+	sleep 2; 
+	2 fadeMusic 0.4;
+	// mby. here a 
+	playSound3D [getMissionPath "sfx\objectOnTable.ogg", tablet01, true, getPosASL tablet01, 2]; 
+	sleep 1; 
+	0 fadeMusic 0;
+	playSound3D [getMissionPath "sfx\C_EA_RadioMusic2.ogg", tablet01, true, getPosASL tablet01, 1, 1, 9, 50, false];
+	2 fadeMusic 0;
+	sleep 3; 
+	playMusic ""; 
+	0 fadeMusic 1; 
+}; 
+
+[0, 99999, false, true] call BIS_fnc_cinemaBorder; 
+
+
+
+sleep 6;
 
 
 line1 = ["PA", "Lt. Hawk, please report to Col. Rollins.", introPA, 3, 1, "UI"];
@@ -16,7 +45,7 @@ sleep 3;
 
 line1 = ["Drawn", "James!", introKNOCKER, 1, 1, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-sleep 2; 
+sleep 3; 
 
 playSound3D [getMissionPath "sfx\KnockDoorMetal.ogg", introKNOCKER, false, getPosASL introKNOCKER, 4, 1, 0]; 
 
@@ -27,6 +56,9 @@ introGo = true;
 titleCut ["", "BLACK IN", 6];
 sleep 3; 
 playSound3D [getMissionPath "sfx\KnockDoorMetal.ogg", introKNOCKER, false, getPosASL introKNOCKER, 4, 1, 0]; 
+
+line1 = ["You", "Yeah heard it - give me a sec.", player, 1, 1, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 
 Task01activ = true;
 [1, 0, false, false] call BIS_fnc_cinemaBorder; 
