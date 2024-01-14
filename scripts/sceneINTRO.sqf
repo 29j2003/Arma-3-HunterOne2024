@@ -2,8 +2,18 @@
 
 titleCut ["", "BLACK FADED", 999];
 
-_video = ["\a3\missions_f_epa\video\a_in2_quotation.ogv"] spawn bis_fnc_playVideo; 
+_quote = selectRandom 
+[
+"a3\missions_f_epa\video\a_m01_quotation.ogv",
+"a3\missions_f_epa\video\a_m02_quotation.ogv",
+"a3\missions_f_epa\video\a_m03_quotation.ogv",
+"a3\missions_f_epa\video\a_m04_quotation.ogv",
+"a3\missions_f_epa\video\a_m05_quotation.ogv"
+]; 
+
+_video = [_quote] spawn bis_fnc_playVideo; 
 waitUntil {scriptDone _video}; 
+
 
 //["Day 2 of the Invasion.",-1,-1,4,1,0,789] spawn BIS_fnc_dynamicText; 
 
@@ -16,11 +26,13 @@ waitUntil {scriptDone _video};
 	sleep 2; 
 	2 fadeMusic 0.4;
 	// mby. here a 
-	playSound3D [getMissionPath "sfx\objectOnTable.ogg", tablet01, true, getPosASL tablet01, 2]; 
+	playSound3D [getMissionPath "sfx\objectOnTable.ogg", tablet01, true, getPosASL tablet01, 3]; 
+	0 fadeMusic 0.2;
 	sleep 1; 
+	playSound3D [getMissionPath "sfx\C_EA_RadioMusic2.ogg", tablet01, true, getPosASL tablet01, 2, 1, 5, 52];
 	0 fadeMusic 0;
-	playSound3D [getMissionPath "sfx\C_EA_RadioMusic2.ogg", tablet01, true, getPosASL tablet01, 1, 1, 9, 50, false];
-	2 fadeMusic 0;
+	player setPos (getPos playerMarker); 
+	player setDir 293.028; 
 	sleep 3; 
 	playMusic ""; 
 	0 fadeMusic 1; 

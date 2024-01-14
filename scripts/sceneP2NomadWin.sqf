@@ -1,11 +1,13 @@
 // should play out when Nomad was supported
 
-player sideChat "Hunter-One to Thunder, all targets neutralized. Over.";  
-//playSound
-sleep 4; 
-officerBRIEF sideChat "Copy Hunter-One, excellent work. Kerry gives his thanks."; 
-//playSound
-sleep 4; 
-officerBRIEF sideChat "Return back to base for debrief - you have done a good job today James."; 
+line1 = ["You", "Hunter 1-1 to Thunder, all threats neutralized. Over.", player, 4, 1, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+sleep 2;
+
+line1 = ["Thunder", "Copy Hunter 1-1, excellent work. Nomad gives his graditude.", officerBRIEF, 4, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 2; 
-//call End? 
+
+line1 = ["Thunder", "Return to base for debrief - you both saved a lot of people today. Thunder Out.", officerBRIEF, 4, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+sleep 2; 

@@ -1,12 +1,18 @@
 // scene where EVAC calls 
+
+line1 = ["Frost", "CSAT forces have been neutrilized.", player, 2, 1, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 2; 
 
-line1 = ["You", "Hunter-One to Thunder, enemy assault forces have been eliminated. Over.", player, 2, 1, "3D"];
+line1 = ["You", "Good shooting Frost.", player, 2, 1, "3D"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+sleep 2; 
 
+line1 = ["You", "Hunter 1-1 to Thunder, enemy assault forces have been eliminated. Over.", player, 2, 1, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 5;
 
-line1 = ["Rollins", "Copy Hunter-One, dispatching evac now. Out.", officerBrief, 2, 1, "UI"];
+line1 = ["Rollins", "Copy Hunter 1-1, dispatching evac now. Out.", officerBrief, 2, 1, "UI"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 
 // intital call between player and evac
@@ -26,7 +32,7 @@ player setVariable ["evacHELOlanded", 0];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 3;  
 	
-	line1 = ["Ghost 2-1", "Hunter-One keep defending, this might take a while.", evacHELOD, 1, 1, "UI"];
+	line1 = ["Ghost 2-1", "Hunter 1-1 keep defending, this might take a while.", evacHELOD, 1, 1, "UI"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 };
 

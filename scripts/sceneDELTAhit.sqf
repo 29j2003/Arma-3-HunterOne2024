@@ -34,7 +34,7 @@ line1 = ["Thunder", "Delta do you read me!", officerBrief, 2, 1, "UI"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 3;
 
-line1 = ["Thunder", "Thunder to Hunter-One, contact to Delta has been lost.", officerBrief, 3, 1, "UI"];
+line1 = ["Thunder", "Thunder to Hunter 1-1, contact to Delta has been lost.", officerBrief, 3, 1, "UI"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 3; 
 
