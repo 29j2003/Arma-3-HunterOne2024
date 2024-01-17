@@ -23,7 +23,7 @@ officerBrief switchMove "Acts_Kore_IdleNoWeapon_out";
 {
 	sleep 2.5;
 	officerBrief switchMove "Acts_C_in1_briefing";
-	sleep 11; 
+	sleep 55; 
 	officerBrief switchMove "Acts_C_in1_briefing";
 	sleep 19.365; 
 	officerBrief switchMove "Acts_Kore_IdleNoWeapon_in"; 
@@ -138,12 +138,12 @@ line1 = ["Rollins", "Dismissed.", officerBrief, 2, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 
 
-
-sleep 2; 
+Task02activ = true;
+sleep 1; 
 
 ////////////////////////////////
 
-Task02activ = true;
+
 [1, 0, false, true] call BIS_fnc_cinemaBorder; 
 
 

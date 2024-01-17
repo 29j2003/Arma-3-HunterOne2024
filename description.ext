@@ -201,8 +201,6 @@ class CfgSentences
 }; 
 // Example BIKB/KBTELL setup, which wasn't used at the end. 
 
-briefing = 0;
-
 
 class CfgDebriefing
 {  
@@ -290,3 +288,14 @@ class CfgHints
 		};
 	};
 };
+
+
+
+
+author			= "29/P4TCH3R";
+onLoadName		= "Hunter One";
+onLoadMission	= "Take to the skies in your Blackfoot attack-helicopter.";
+// loadScreen		= "img\HunteOneLoading.paa";
+
+
+briefing = 0; 

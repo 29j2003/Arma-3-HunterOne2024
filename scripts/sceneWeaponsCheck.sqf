@@ -21,7 +21,7 @@ playerVehicle engineOn true;
 	line1 = ["You", "And the ASRAAM are also responding.", player, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 2; 
-	line1 = ["You", "Anything not working for you frost?", player, 2, 0, "3D"];
+	line1 = ["You", "Anything broken for you Frost?", player, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 2; 
 	line1 = ["Frost", "No complaints here.", coPilot, 2, 0, "3D"];
