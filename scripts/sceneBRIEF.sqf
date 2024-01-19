@@ -23,9 +23,7 @@ officerBrief switchMove "Acts_Kore_IdleNoWeapon_out";
 {
 	sleep 2.5;
 	officerBrief switchMove "Acts_C_in1_briefing";
-	sleep 55; 
-	officerBrief switchMove "Acts_C_in1_briefing";
-	sleep 19.365; 
+	sleep 110; 
 	officerBrief switchMove "Acts_Kore_IdleNoWeapon_in"; 
 	sleep 3.265; 
 	officerBrief switchMove "Acts_Kore_IdleNoWeapon_loop"; 

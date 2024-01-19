@@ -1,6 +1,6 @@
 // scene where EVAC calls 
 
-line1 = ["Frost", "CSAT forces have been neutrilized.", coPilot, 2, 1, "3D"];
+line1 = ["Frost", "CSAT forces have been neutralized.", coPilot, 2, 1, "3D"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 2; 
 
