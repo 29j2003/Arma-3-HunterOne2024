@@ -294,8 +294,8 @@ class CfgHints
 
 author			= "29/P4TCH3R";
 onLoadName		= "Hunter One";
-onLoadMission	= "Take to the skies in your Blackfoot attack-helicopter.";
-// loadScreen		= "img\HunteOneLoading.paa";
+onLoadMission	= "Take to the skies in your AH-99 Blackfoot.";
+loadScreen		= "img\HunteOneLoading.paa";
 
 
 briefing = 0; 
