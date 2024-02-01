@@ -4,43 +4,44 @@ sleep 4;
 playerVehicle engineOn true; 
 [0, 99999, false, true] call BIS_fnc_cinemaBorder; 
 
+// Dialog 
 [] spawn
 {
-	line1 = ["You", "Okay - let's check everything.", player, 2, 0, "3D"];
+	line1 = ["You", "Alright - let's check everything.", player, 2, 0, "3D"];
+	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+	sleep 2; 
+	line1 = ["You", "20mm cannon, cycling smoothly.", player, 2, 0, "3D"];
+	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+	sleep 2; 
+	line1 = ["You", "DAGR missiles, system responsive.", player, 2, 0, "3D"];
+	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+	sleep 2; 
+	line1 = ["You", "Skalpel ATGMs, responding too..", player, 2, 0, "3D"];
+	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+	sleep 2; 
+	line1 = ["You", "ASRAAMs, looking good. All systems green.", player, 2, 0, "3D"];
+	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+	sleep 2; 
+	line1 = ["You", "Comms check - Frost how is it looking for you?", player, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 2; 
-	line1 = ["You", "20mil cycels, good.", player, 2, 0, "3D"];
+	line1 = ["Frost", "Systems are all green on my end. 1-2 ready to engage.", coPilot, 2, 0, "UI"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 2; 
-	line1 = ["You", "The DAGR are also responding.", player, 2, 0, "3D"];
-	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-	sleep 2; 
-	line1 = ["You", "The Skalpel are looking good too.", player, 2, 0, "3D"];
-	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-	sleep 2; 
-	line1 = ["You", "And the ASRAAM are also responding.", player, 2, 0, "3D"];
-	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-	sleep 2; 
-	line1 = ["You", "Anything broken for you Frost?", player, 2, 0, "3D"];
-	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-	sleep 2; 
-	line1 = ["Frost", "No complaints here.", coPilot, 2, 0, "3D"];
-	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-	sleep 2; 
-	line1 = ["You", "Good - then let's help Delta.", player, 2, 0, "3D"];
+	line1 = ["You", "Copy that, Frost. Comms are loud and clear. Let’s get in the air and support Delta. Over.", player, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 1; 
 	[1, 0, false, false] call BIS_fnc_cinemaBorder; 
 };
 
 
-
+// Weapon Display change
 [] spawn
 {
 	playerVehicle selectWeaponTurret ["gatling_20mm",[0]];
-	sleep 3; 
+	sleep 4; 
 	playerVehicle selectWeaponTurret ["gatling_20mm",[0]];
-	sleep 3; 
+	sleep 4; 
 	playerVehicle selectWeaponTurret ["missiles_DAGR",[0]];	
 	sleep 4; 
 	playerVehicle selectWeaponTurret ["missiles_SCALPEL",[0]];	
@@ -49,5 +50,10 @@ playerVehicle engineOn true;
 	sleep 4; 
 	playerVehicle selectWeaponTurret ["gatling_20mm",[0]];		
 };
+
+//  Potential Soundeffects
+[] spawn
+{
+}; 
 
 

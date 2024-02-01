@@ -1,13 +1,17 @@
 // should play out when Nomad was supported
 
-line1 = ["You", "Hunter 1-1 to Thunder, all threats neutralized. Over.", player, 4, 1, "3D"];
+line1 = ["You", "Longbow, this is Hunter 1-1. All threats in the AO are Tango Down. Awaiting further orders, over.", player, 4, 1, "3D"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-sleep 2;
+sleep 3;
 
-line1 = ["Thunder", "Copy Hunter 1-1, excellent work. Nomad gives his graditude.", officerBRIEF, 4, 1, "UI"];
+line1 = ["Longbow", "Solid copy on all. Good work out there. Nomad sends his gratitude, over.", officerBRIEF, 4, 1, "UI"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-sleep 2; 
+sleep 3; 
 
-line1 = ["Thunder", "Return to base for debrief - you both saved a lot of people today. Thunder Out.", officerBRIEF, 4, 1, "UI"];
+line1 = ["You", "Roger, Longbow. Always glad to lend a hand. What's next, over?", player, 4, 1, "3D"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-sleep 2; 
+sleep 3;
+
+line1 = ["Longbow", "Hunter 1-1, RTB for debrief. You've made a difference today and saved a lot of lives. Longbow out.", officerBRIEF, 4, 1, "UI"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+sleep 3; 

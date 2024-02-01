@@ -208,8 +208,8 @@ class CfgDebriefing
 	{
 		title = "Mission Completed";
 		subtitle = "All objectives completed.";
-		description = "Hunter-One was able to complete all primary objectives, supporting both Delta and Nomad. Mission Succes.";
-		pictureBackground = "";
+		description = "Hunter 1-1 was able to complete all primary objectives, supporting both Delta and Nomad. Mission Succes.";
+		pictureBackground = "img\Win.jpg";
 		picture = "";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
@@ -226,8 +226,8 @@ class CfgDebriefing
 	{
 		title = "Mission Failed";
 		subtitle = "Delta was decimated.";
-		description = "Hunter-One was to slow - Delta has been killed. Mission Failed.";
-		pictureBackground = ""; // img\deltaEnd.paa
+		description = "Hunter 1-1 was to slow - Delta has been killed. Mission Failed.";
+		pictureBackground = "img\Delta.jpg"; // img\deltaEnd.paa
 		picture = "KIA";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
@@ -236,7 +236,7 @@ class CfgDebriefing
 		title = "Mission Failed";
 		subtitle = "Ghost 2-1 has been destroyed.";
 		description = "Ghost 2-1 has been killed in action - Hunter-One wasn't able to defend them. Mission Failed.";
-		pictureBackground = "";
+		pictureBackground = "img\Ghost.jpg";
 		picture = "KIA";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
@@ -244,8 +244,8 @@ class CfgDebriefing
 	{
 		title = "Mission Failed";
 		subtitle = "Nomad has been killed.";
-		description = "Squad Nomad was killed - Hunter-One wasn't fast enough in support them. Mission Failed.";
-		pictureBackground = "";
+		description = "Nomad was killed - Hunter 1-1 wasn't fast enough in support them. Mission Failed.";
+		pictureBackground = "img\Nomad.jpg";
 		picture = "KIA";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
@@ -295,7 +295,7 @@ class CfgHints
 author			= "29/P4TCH3R";
 onLoadName		= "Hunter One";
 onLoadMission	= "Take to the skies in your AH-99 Blackfoot.";
-loadScreen		= "img\HunteOneLoading.paa";
+loadScreen		= "img\LoadingScreen.jpg";
 
 
 briefing = 0; 

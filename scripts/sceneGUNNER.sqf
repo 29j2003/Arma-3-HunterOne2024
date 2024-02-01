@@ -20,17 +20,21 @@ sleep 2;
 [] spawn
 {
 
-	line1 = ["Frost", "Morning LT!", coPilot, 2, 0, "3D"];
+	line1 = ["Frost", "LT, reporting in!", coPilot, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 	sleep 2; 
-	line1 = ["Frost", "She is gunned up and ready to go.", coPilot, 2, 0, "3D"];
+	line1 = ["You", "Status, Frost?", player, 2, 0, "3D"];
+	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+	sleep 2; 
+	line1 = ["Frost", "Bird's gunned up, ready to roll, sir.", coPilot, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
  	sleep 3; 
-	line1 = ["You", "Then let's get a move on.", player, 2, 0, "3D"];
+	line1 = ["You", "No time to waste then.", player, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 	sleep 3; 
-	line1 = ["Frost", "Yes Sir!", coPilot, 2, 0, "3D"];
+	line1 = ["Frost", "Affirmative, sir! Wheels up ASAP.", coPilot, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+	
 };
 
 // Order to get in helo: 
