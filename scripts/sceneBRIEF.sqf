@@ -73,9 +73,14 @@ sleep 2;
 line1 = ["Rollins", "Good luck and godspeed. Dismissed.", officerBrief, 4, 0, "3D"];
 [[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 sleep 1; 
-
 Task02activ = true;
 [1, 0, false, true] call BIS_fnc_cinemaBorder; 
+sleep 1; 
+line1 = ["You", "Sir.", player, 4, 0, "3D"];
+[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+sleep 1; 
+
+
 };
 
 

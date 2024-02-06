@@ -30,7 +30,7 @@ waitUntil {scriptDone _video};
 	0 fadeMusic 0.2;
 	sleep 1; 
 	playSound3D [""];
-	playSound3D [getMissionPath "sfx\C_EA_RadioMusic2.ogg", tablet01, true, getPosASL tablet01, 1.5, 1, 4, 0, false];
+	playSound3D [getMissionPath "sfx\C_EA_RadioMusic2.ogg", tablet01, true, getPosASL tablet01, 2, 1, 4, 0, false];
 	0 fadeMusic 0;
 	player setPos (getPos playerMarker); 
 	player setDir 293.028; 
@@ -90,10 +90,6 @@ waitUntil {
     _phase > 0
 };
 sleep 1; 
-
-// Once the door is open, execute the script
-[] execVM "scripts\sceneINTROknock.sqf"; 
-
 
 
 playSound3D [getMissionPath "sfx\C_EA_RadioMusic1.ogg", radioCamp01, false, getPosASL radioCamp01, 3, 1, 15, 0, false];

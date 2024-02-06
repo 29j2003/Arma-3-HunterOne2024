@@ -208,7 +208,7 @@ class CfgDebriefing
 	{
 		title = "Mission Completed";
 		subtitle = "All objectives completed.";
-		description = "Hunter 1-1 was able to complete all primary objectives, supporting both Delta and Nomad. Mission Succes.";
+		description = "Hunter 1-1 was able to complete all primary objectives, supporting both Delta and Nomad. Scenario Completed.";
 		pictureBackground = "img\Win.jpg";
 		picture = "";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
@@ -247,6 +247,15 @@ class CfgDebriefing
 		description = "Nomad was killed - Hunter 1-1 wasn't fast enough in support them. Mission Failed.";
 		pictureBackground = "img\Nomad.jpg";
 		picture = "KIA";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class HunterDeserted
+	{
+		title = "Mission Failed";
+		subtitle = "Hunter 1-1 left the AO.";
+		description = "Hunter 1-1 has left the AO and refused to return.";
+		pictureBackground = "";
+		picture = "";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 };

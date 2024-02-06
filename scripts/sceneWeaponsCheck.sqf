@@ -54,6 +54,8 @@ playerVehicle engineOn true;
 //  Potential Soundeffects
 [] spawn
 {
+	sleep 30; 
+	playMusic "BackgroundTrack04_F_EPC"; 
 }; 
 
 

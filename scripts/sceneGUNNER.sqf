@@ -11,7 +11,7 @@ sleep 2;
 {
 	coPilot disableAI "ANIM"; 
 	coPilot switchMove "Acts_NATOCommanderArrival_Larkin_2"; sleep 1.832; 
-	coPilot switchMove "Acts_NATOCommanderArrival_Larkin_3"; sleep 9; 
+	coPilot switchMove "Acts_NATOCommanderArrival_Larkin_3"; sleep 13; 
 	coPilot switchMove "Acts_NATOCommanderArrival_Larkin_4"; sleep 0.832; 
 	coPilot switchMove "";
 	coPilot enableAI "ANIM"; 		
@@ -20,7 +20,7 @@ sleep 2;
 [] spawn
 {
 
-	line1 = ["Frost", "LT, reporting in!", coPilot, 2, 0, "3D"];
+	line1 = ["Frost", "Hunter 1-2 reporting in!", coPilot, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 	sleep 2; 
 	line1 = ["You", "Status, Frost?", player, 2, 0, "3D"];

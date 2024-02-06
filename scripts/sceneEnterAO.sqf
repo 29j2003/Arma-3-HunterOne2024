@@ -1,6 +1,6 @@
 // play out when player enters AO
 
-line1 = ["You", "Thunder, this is Hunter 1-1. We're Oscar Mike to the AO, over.", player, 3, 1, "3D"];
+line1 = ["You", "Longbow, this is Hunter 1-1. We're Oscar Mike to the AO, over.", player, 3, 1, "3D"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 5; 
 
