@@ -12,7 +12,7 @@ taskReArm = true;
 
 
 sleep 5; 
-line1 = ["You", "Acknowledged, Longbow. Hunter 1-1 out.", player, 4, 1, "3D"];
+line1 = ["You", "Acknowledged Longbow. Hunter 1-1 out.", player, 4, 1, "3D"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 
 

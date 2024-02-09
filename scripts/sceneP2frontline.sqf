@@ -22,6 +22,7 @@
 "BIS_mrk_arrow_3" setMarkerAlpha 1; 
 "BIS_mrk_arrow_1" setMarkerAlpha 1; 
 "markerAAFsolarDONE" setMarkerAlpha 1; 
+"markerPart2" setMarkerAlpha 1; 
 
 // Variable that activates trigger for Orbat change (if working) 
 FrontLineChange = true; 

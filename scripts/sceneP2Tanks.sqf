@@ -30,6 +30,9 @@ aafMBT02 setPos (_selectedTeleportMBT02);
 aafMBT02 setDir _dir02;
 
 
+aafMBT01 engineOn true;
+aafMBT02 engineOn true;
+
 // Live Feed:  
 [LiveDroneSource, aafMBT01, player] call BIS_fnc_liveFeed;
 BIS_liveFeed camPrepareFOV 0.1;
@@ -37,16 +40,26 @@ BIS_liveFeed camCommitPrepared 0;
 [ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 
 
 
+// First Feed finished
 waitUntil {!alive aafMBT01}; 
 call BIS_fnc_liveFeedTerminate;
 sleep 2; 
 
+// Talking 
+line1 = ["Frost", "One tank less.", coPilot, 2, 0, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+
+
+// Live Feed: 
 [LiveDroneSource, aafMBT02, player] call BIS_fnc_liveFeed;
 BIS_liveFeed camPrepareFOV 0.1;
 BIS_liveFeed camCommitPrepared 0;
 [ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 
 
-
+// Second Feed finished
 waitUntil {!alive aafMBT02}; 
 call BIS_fnc_liveFeedTerminate;
 
+// Talking 
+line1 = ["Frost", "Boom.", coPilot, 2, 0, "3D"];
+[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;

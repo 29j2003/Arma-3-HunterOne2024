@@ -16,7 +16,7 @@ playerVehicle engineOn true;
 	line1 = ["You", "DAGR missiles, system responsive.", player, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 	sleep 2; 
-	line1 = ["You", "Skalpel ATGMs, responding too..", player, 2, 0, "3D"];
+	line1 = ["You", "Skalpel ATGMs, responding too.", player, 2, 0, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 	sleep 2; 
 	line1 = ["You", "ASRAAMs, looking good. All systems green.", player, 2, 0, "3D"];

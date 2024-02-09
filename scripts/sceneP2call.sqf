@@ -13,7 +13,7 @@ line1 = ["Longbow", "Hunter 1-1, break off current engagement. New orders incomi
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 2; 
 
-line1 = ["You", "Hunter 1-1 cycling and awating orders.", officerBrief, 3, 1, "UI"];
+line1 = ["You", "Hunter 1-1 cycling and awaiting orders.", officerBrief, 3, 1, "UI"];
 [[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 sleep 8; 
 
