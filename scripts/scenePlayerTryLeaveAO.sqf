@@ -1,1 +1,0 @@
-// scene script when player tries to leave AO 

@@ -1,3 +1,16 @@
+// Description.ext file to class all stuff: 
+
+author			= "29/P4TCH3R";
+onLoadName		= "Hunter One";
+onLoadMission	= "Take to the skies in your AH-99 Blackfoot.";
+loadScreen		= "img\LoadingScreen.jpg";
+
+
+briefing = 0; 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// for sounds, sfx and anything audio related: 
 class CfgSounds
 {
 	sounds[] = {}; 
@@ -55,7 +68,7 @@ class CfgSounds
 	class Greet01
 	{
 		name = "Greet01";						
-		sound[] = { "va\a_hub_350_greet_player_ALPB_0.ogg", 2, 1, 100 };				
+		sound[] = { "dubbing\a_hub_350_greet_player_ALPB_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -67,7 +80,7 @@ class CfgSounds
 	class Greet02
 	{
 		name = "Greet02";						
-		sound[] = { "va\a_hub_350_greet_player_BRA_0.ogg", 2, 1, 100 };				
+		sound[] = { "dubbing\a_hub_350_greet_player_BRA_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -79,7 +92,7 @@ class CfgSounds
 	class Greet03
 	{
 		name = "Greet03";						
-		sound[] = { "va\a_hub_350_greet_player_ALP_0.ogg", 2, 1, 100 };				
+		sound[] = { "dubbing\a_hub_350_greet_player_ALP_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -91,7 +104,7 @@ class CfgSounds
 	class Greet04
 	{
 		name = "Greet04";						
-		sound[] = { "va\a_hub_350_greet_player_CHA_0.ogg", 2, 1, 100 };				
+		sound[] = { "dubbing\a_hub_350_greet_player_CHA_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -103,7 +116,7 @@ class CfgSounds
 	class Ambient01
 	{
 		name = "Ambient01";						
-		sound[] = { "va\c_in1_14_ambient_talk_04_ABA_0.ogg", 3, 1, 100 };				
+		sound[] = { "dubbing\c_in1_14_ambient_talk_04_ABA_0.ogg", 3, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -115,7 +128,7 @@ class CfgSounds
 	class Ambient02
 	{
 		name = "Ambient02";						
-		sound[] = { "va\c_in1_14_ambient_talk_04_ABB_0.ogg", 3, 1, 100 };				
+		sound[] = { "dubbing\c_in1_14_ambient_talk_04_ABB_0.ogg", 3, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -127,7 +140,7 @@ class CfgSounds
 	class Ambient03
 	{
 		name = "Ambient03";						
-		sound[] = { "va\c_in1_14_ambient_talk_04_ABB_1.ogg", 3, 1, 100 };				
+		sound[] = { "dubbing\c_in1_14_ambient_talk_04_ABB_1.ogg", 3, 1, 100 };				
 		titles[] = { 0, "" };		
 
 		titlesFont = "LCD14";		
@@ -136,9 +149,12 @@ class CfgSounds
 		forceTitles = 0;			
 		titlesStructured = 0;		
 	};
-	///////////////////////////////////////////////////////////////// Dubbing (Brief): ///////////////////////////////////////////////////////////////// 
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Player and CoPilot Identities: 
 class CfgIdentities
 {
 	class player
@@ -160,6 +176,9 @@ class CfgIdentities
 		speaker = "Male02ENG";
 	};
 };
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class CfgFunctions  
 {  
@@ -185,22 +204,8 @@ class CfgFunctions
     }; 
 };
 
-
-
-
-class CfgSentences
-{
-	class TALKS
-	{
-		class Example01
-		{
-			file = "kbTell\bikbexample.bikb";
-			#include "kbTell\bikbexample.bikb"
-		};
-	};
-}; 
-// Example BIKB/KBTELL setup, which wasn't used at the end. 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class CfgDebriefing
 {  
@@ -262,8 +267,8 @@ class CfgDebriefing
 
 // ["endName", isVictory, fadeType, playMusic, cancelTasks] call BIS_fnc_endMission
 
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class CfgHints
 {
@@ -298,13 +303,7 @@ class CfgHints
 	};
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-author			= "29/P4TCH3R";
-onLoadName		= "Hunter One";
-onLoadMission	= "Take to the skies in your AH-99 Blackfoot.";
-loadScreen		= "img\LoadingScreen.jpg";
-
-
-briefing = 0; 

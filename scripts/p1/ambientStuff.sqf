@@ -1,0 +1,96 @@
+// Anything Ambient Related that happens during the first section of the scenario:
+
+
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
+// Ambient Talk between two guys #01
+/////////////////////////////////////
+[] spawn
+{
+missionNamespace setVariable ["AmbientTalk01_Go", false];
+
+waitUntil {missionNamespace getVariable ["AmbientTalk01_Go", true];}; 
+
+// ambientHQ voice lines stuff
+rando01 say3D "Ambient01"; 
+sleep 3; 
+rando02 say3D "Ambient02"; 
+sleep 2; 
+rando02 say3D "Ambient03"; 
+
+
+
+}; 
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
+// Ambient Artillery Fire #01
+/////////////////////////////////////
+[] spawn
+{
+missionNamespace setVariable ["AmbientArty01_Go", false];
+
+waitUntil {missionNamespace getVariable ["AmbientArty01_Go", true];}; 
+
+arty01 doArtilleryFire [[22683.336, 15938.023, 1000], "32Rnd_155mm_Mo_shells", 5];
+sleep 1;
+
+arty02 doArtilleryFire [[22683.336, 15938.023, 1000], "32Rnd_155mm_Mo_shells", 5];
+
+sleep 2; 
+arty03 doArtilleryFire [[22683.336, 15938.023, 1000], "32Rnd_155mm_Mo_shells", 5];
+
+
+
+
+
+}; 
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
+// Ambient Artillery Fire #02
+/////////////////////////////////////
+[] spawn
+{
+missionNamespace setVariable ["AmbientArty02_Go", false];
+
+waitUntil {missionNamespace getVariable ["AmbientArty02_Go", true];};  
+
+arty01 doArtilleryFire [[22683.336, 15938.023, 1000], "32Rnd_155mm_Mo_shells", 5];
+sleep 1;
+
+arty02 doArtilleryFire [[22683.336, 15938.023, 1000], "32Rnd_155mm_Mo_shells", 5];
+
+sleep 2; 
+arty03 doArtilleryFire [[22683.336, 15938.023, 1000], "32Rnd_155mm_Mo_shells", 5];
+
+
+
+
+
+
+}; 
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
+// 
+/////////////////////////////////////
+[] spawn
+{
+waitUntil {}; 
+
+
+
+
+
+
+
+
+
+
+
+
+}; 
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+

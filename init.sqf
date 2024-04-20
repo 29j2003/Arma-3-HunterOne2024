@@ -1,11 +1,17 @@
-//execVM "fn_introPictures.sqf";
+// Init.sqf stat executes right at the beginning: 
 
-execVM "scripts\sceneINTRO.sqf"; 
+// execute Intro script: 
+//execVM "scripts\p1\introPlayer.sqf"; 
 
+// execute task list:
+execVM "tasks\taskList.sqf"; 
+
+// Hide Layer: 
 {
     _x enableSimulation false;
     _x hideObject true;
 } forEach (getMissionLayerEntities "SupportObjective" select 0);
 
 
+// Change Animation for the officer: 
 officerBrief switchMove "Acts_Kore_IdleNoWeapon_loop"; 
