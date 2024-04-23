@@ -1,35 +1,38 @@
 // PA System playback, picks random line and plays it:
-// playSound ""; 
+// playSound ''; 
+// execVM 'scripts\p1\paSystem.sqf'; 
 
-missionNamespace setVariable ["paSystemOn", false];
+missionNamespace setVariable ['paSystemOn', false];
 
-	// playSound3D [getMissionPath "mySound.ogg", player]; // to play a mission directory sound
-
-	// Array:
-    _line01 = {playSound3D [getMissionPath "dubbing\PA\PA03.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA03.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]}; 
-    _line02 = {playSound3D [getMissionPath "dubbing\PA\PA04.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA04.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]};
-    _line03 = {playSound3D [getMissionPath "dubbing\PA\PA05.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA05.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]}; 
-    _line04 = {playSound3D [getMissionPath "dubbing\PA\PA06.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA06.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]};
-    _line05 = {playSound3D [getMissionPath "dubbing\PA\PA07.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA07.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]};
-	_line06 = {playSound3D [getMissionPath "dubbing\PA\PA08.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA08.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]}; 
-    _line07 = {playSound3D [getMissionPath "dubbing\PA\PA09.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA09.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]};
-    _line08 = {playSound3D [getMissionPath "dubbing\PA\PA10.ogg", paSpeaker01, false, [0,0,0], 2, 1, 100] && playSound3D [getMissionPath "dubbing\PA\PA10.ogg", paSpeaker02, false, [0,0,0], 2, 1, 100]};
+waitUntil {missionNamespace getVariable ['paSystemOn', true]};
 
 
-    _lineArray = [_line01, _line02, _line03, _line04, _line05, _line06, _line07, _line08];
 
-waitUntil {missionNamespace getVariable ["paSystemOn", false];};
+[] spawn {
+    // Define an array of sound filenames
+    _soundFiles = [
+        "dubbing\PA\PA03.ogg",
+        "dubbing\PA\PA04.ogg",
+        "dubbing\PA\PA05.ogg",
+        "dubbing\PA\PA06.ogg",
+        "dubbing\PA\PA07.ogg",
+        "dubbing\PA\PA08.ogg",
+        "dubbing\PA\PA09.ogg",
+        "dubbing\PA\PA10.ogg"
+    ];
 
-while { count _lineArray > 0 } do
-{
+    while { count _soundFiles > 0 } do {
+        // Randomly select a sound filename from the array
+        _randomSound = selectRandom _soundFiles;
 
-    _usedLine = selectRandom _lineArray; // selectRandom to pick a random line
-	_usedLine; // hint to display (mainly for debugging and testing) 
-	
-    _usedLineIndex = _lineArray find _usedLine;  // Find the index of _usedLine
+        // Play the selected sound
+        playSound3D [getMissionPath _randomSound, paSpeaker01, false, getPosASL paSpeaker01, 5, 1, 100];
+        playSound3D [getMissionPath _randomSound, paSpeaker02, false, getPosASL paSpeaker02, 5, 1, 100];
 
+        // Remove the selected sound from the array
+        _soundFiles = _soundFiles - [_randomSound];
 
-    _lineArray deleteAt _usedLineIndex;  // Delete the element at the found index
-
-    sleep (5 + random 15); 
+        // Wait for a random duration
+        sleep (8 + random 30);
+    };
 };

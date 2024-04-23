@@ -6,6 +6,10 @@
 // execute task list:
 execVM "tasks\taskList.sqf"; 
 
+// execute Ambient stuff:
+execVM "scripts\p1\ambientStuff.sqf"; 
+execVM 'scripts\p1\paSystem.sqf'; 
+
 // Hide Layer: 
 {
     _x enableSimulation false;

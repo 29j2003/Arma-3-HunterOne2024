@@ -62,13 +62,18 @@ waitUntil {missionNamespace getVariable ["coPilotIntro_Go", true];};
 
 	waitUntil {player in playerVehicle};
 	[coPilot] joinSilent player;
+	playerVehicle setVehicleLock "LOCKED";
 
-	waitUntil {player in playerVehicle};
-	missionNamespace setVariable ["Task03_Done", false];
+	missionNamespace setVariable ["Task03_Done", true];
 	
-	sleep 2;
-	missionNamespace setVariable ["Task04_Go", false];
+	missionNamespace setVariable ["coPilotWeaponsCheck_Go", true];
 
+
+	// Some Ambient removal: 
+	sleep 10; 
+	deleteVehicle ambientBattleSound01;
+	deleteVehicle ambientBattleSound02;
+	deleteVehicle ambientBattleSound03;
 }; 
 
 ////////////////////////////////////////////////////////////
@@ -78,13 +83,95 @@ waitUntil {missionNamespace getVariable ["coPilotIntro_Go", true];};
 
 
 ////////////////////////////////////////////////////////////
-//
+// Weapons Check Script: 
 ////////////////////////////////////////////////////////////
-
 [] spawn
 {
 
-}; 
+	// Go Var: 
+	missionNamespace setVariable ["coPilotWeaponsCheck_Go", false];
+
+	// wait until var is active
+	waitUntil {missionNamespace getVariable ["coPilotWeaponsCheck_Go", true];}; 
+
+	// short delay: 
+	sleep 3; 
+	
+	// Player Stuff: 
+	playerVehicle engineOn true; 
+	[0, 99999, false, true] call BIS_fnc_cinemaBorder; 
+	
+		// Line 01: 
+		line1 = ["You", "Alright - let's check everything.", player, 4, 0, "3D"];
+		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+		sleep 0.5; 
+	
+		
+			// Set Weapons Mode:
+			playerVehicle selectWeaponTurret ["gatling_20mm",[0]];
+		
+		// Line 02: 
+		line1 = ["You", "20mm cannon, cycling smoothly.", player, 4, 0, "3D"];
+		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+		sleep 0.5; 
+		
+		
+			// Set Weapons Mode:
+			playerVehicle selectWeaponTurret ["missiles_DAGR",[0]];	
+		
+		// Line 03: 
+		line1 = ["You", "DAGR missiles, system responsive.", player, 4, 0, "3D"];
+		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+		sleep 0.5; 
+
+
+			// Set Weapons Mode:
+			playerVehicle selectWeaponTurret ["missiles_SCALPEL",[0]];	
+		
+		// Line 04: 
+		line1 = ["You", "Skalpel ATGMs, responding too.", player, 4, 0, "3D"];
+		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+		sleep 0.5; 
+
+
+			// Set Weapons Mode:
+			playerVehicle selectWeaponTurret ["missiles_ASRAAM",[0]];	
+		
+		// Line 05: 
+		line1 = ["You", "ASRAAMs, looking good. All systems green.", player, 4, 0, "3D"];
+		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+		sleep 0.5; 
+
+
+			// Set Weapons Mode:
+			playerVehicle selectWeaponTurret ["gatling_20mm",[0]];	
+		
+		// Line 06: 
+		line1 = ["You", "Comms check - Frost how is it looking for you?", player, 4, 0, "3D"];
+		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+		sleep 0.5; 
+		
+		// Line 07: 
+		line1 = ["Frost", "Systems are all green on my end. 1-2 ready to engage.", coPilot, 5, 0, "UI"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		sleep 0.5; 
+		
+		// Line 08:
+		line1 = ["You", "Copy that, Frost. Comms are loud and clear. Let’s get in the air and support Delta. Over.", player, 5, 0, "3D"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		
+		// Return to normal mode: 
+		[1, 0, false, false] call BIS_fnc_cinemaBorder; 
+	
+		// start new task: 
+		missionNamespace setVariable ["Task04_Go", true];
+		
+		// start music: 
+		playMusic "BackgroundTrack04_F_EPC"; 
+		
+		// Ambient Arty: 
+		missionNamespace setVariable ["AmbientArty02_Go", true];
+}; 		
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////

@@ -159,7 +159,7 @@ officerBrief disableAI "ALL";
 		sleep 0.5; 
 		
 		// Line RL14:
-		line1 = ["Rollins", "Good luck and godspeed. Dismissed.", officerBrief, "\dubbing\RL\RL14.ogg", 0, "3D"];
+		line1 = ["Rollins", "Dismissed.", officerBrief, "\dubbing\RL\RL14.ogg", 2, "3D"];
 		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 		sleep 0.5; 
 		

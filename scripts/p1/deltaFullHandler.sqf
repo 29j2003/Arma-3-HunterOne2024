@@ -4,11 +4,34 @@
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 
+// Player Enters AO:
+[] spawn 
+{ 
+	missionNamespace setVariable ["deltaAOcall", false];
+
+		// wait until var is active
+		waitUntil {missionNamespace getVariable ["deltaAOcall", true];}; 
+	
+		// Delta to Hunter, CSAT forces have been marked with red smoke - we need fire support now! 
+		line1 = ["Delta", "Hunter 1-1, this is Delta - Red smoke marks CSAT forces. Requesting immediate fire support, over!", HO_SquadLead, 4, 2, "UI"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		sleep 0.5;
+
+		line1 = ["You", "Solid copy, Delta. Fire support inbound. Stay low, out.", player, 4, 2, "3D"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		sleep 0.5;
+
+}; 
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
 // Hit Dubbing: 
 [] spawn 
 {
 // Vehicle SetDamage: 
 vehD01 setDamage 1; 
+	
+	sleep 15; 
 	
 	waitUntil {  ({alive _x} count (units natoSQUAD)) < 10  }; // 80 percent
 
@@ -62,7 +85,9 @@ vehD02 setDamage 1;
 [] spawn
 {
 
-	waitUntil { condition }; 
+	missionNamespace setVariable ["deltaBoardHelo", false];
+
+		waitUntil {missionNamespace getVariable ["deltaBoardHelo", true];};
 
 	{_x assignAsCargo evacHELO} foreach units group HO_SquadLead;
 	sleep 60; 
@@ -80,3 +105,8 @@ vehD02 setDamage 1;
 	};
 
 }; 
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////

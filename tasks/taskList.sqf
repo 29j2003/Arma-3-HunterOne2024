@@ -73,7 +73,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task01_Go", true] };
 	
 	// Task creation: 
-	[west, ["T01", "MainTask"], ["You have been orderd to Col. Rollins for your next assigment. ", "Report to Col. Rollins.", "marker"], officerBrief, "ASSIGNED", 1, true, "walk", true] call BIS_fnc_taskCreate; 
+	[west, ["T01", "MainTask"], ["You have been orderd to Col. Rollins for your next assigment. ", "Report to Col. Rollins.", "marker"], officerBrief, "ASSIGNED", 1, true, "whiteboard", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task01_Done", true] };
@@ -90,12 +90,20 @@ sleep 2;
 	// needed condition to start task:
 	waitUntil { missionNamespace getVariable ["Task02_Go", true] };
 	
+	
 	// Task creation: 
-	[west, ["T02", "MainTask"], ["Go the armory  and get your gear to move on the next objective. ", "Get your gear at the armory. ", "marker"], armoryBuilding, "ASSIGNED", 1, true, "gear", true] call BIS_fnc_taskCreate; 
+	[west, ["T02", "MainTask"], ["Go the armory  and get your gear to move on the next objective. ", "Get your gear at the armory. ", "marker"], armoryBuilding, "ASSIGNED", 1, true, "armor", true] call BIS_fnc_taskCreate; 
 			
 			// Task stuff:
 			armoryBuilding animate ["door_1_rot", 1];
 			execVM "tasks\task02Check.sqf"; 
+			
+			// Ambient Stuff:
+			missionNamespace setVariable ["AmbientArty01_Go", true];
+			missionNamespace setVariable ['paSystemOn', true];
+			
+			// Play Music: 
+			playMusic "BackgroundTrack01_F_EPC";
 			
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task02_Done", true] };
@@ -113,7 +121,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task03_Go", true] };
 	
 	// Task creation: 
-	[west, ["T03", "MainTask"], ["Get into your Blackfoot helicopter.", "Enter your AH-99 Blackfoot.", "marker"], playerVehicle, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T03", "MainTask"], ["Get into your Blackfoot helicopter.", "Enter your AH-99 Blackfoot.", "marker"], playerVehicle, "ASSIGNED", 1, true, "getin", true] call BIS_fnc_taskCreate; 
 			
 			// Task Stuff: 
 			execVM "scripts\p1\coPilotFullHandler.sqf"; 
@@ -134,7 +142,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task04_Go", true] };
 	
 	// Task creation: 
-	[west, ["T04", "MainTask"], ["Fly to the area of operations to support Delta!", "Fly to the AO!", "marker"], natoDELTA, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T04", "MainTask"], ["Fly to the area of operations to support Delta!", "Fly to the AO!", "marker"], HO_SquadLead, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task04_Done", true] };
@@ -152,7 +160,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task05_Go", true] };
 	
 	// Task creation: 
-	[west, ["T05", "MainTask"], ["Support Delta at all cost!", "Support Delta!", "marker"], natoDELTA, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T05", "MainTask"], ["Support Delta at all cost!", "Support Delta!", "marker"], HO_SquadLead, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task05_Done", true] };
@@ -170,7 +178,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task06_Go", true] };
 	
 	// Task creation: 
-	[west, ["T06", "MainTask"], ["Defend the area and wait for the arrivel of Ghost 2-1!", "Wait for Ghost 2-1!", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T06", "MainTask"], ["Defend the area and wait for the arrivel of Ghost 2-1!", "Wait for Ghost 2-1!", "marker"], where, "ASSIGNED", 1, true, "wait", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task06_Done", true] };
@@ -188,14 +196,14 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task07_Go", true] };
 	
 	// Task creation: 
-	[west, ["T07", "MainTask"], ["Reinforcements are coming down, destroy them before they reach Delta! ", "Destroy incoming reinforcements! ", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T07", "MainTask"], ["Reinforcements are coming down, destroy them before they reach Delta! ", "Destroy incoming reinforcements! ", "marker"], objNull, "ASSIGNED", 0, true, "destroy", false] call BIS_fnc_taskCreate; 
 	
 	// Sub Task Creation for each vehicle:: 
 		[] spawn 
 		{
-		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], where, "ASSIGNED", 1, false, "type", true] call BIS_fnc_taskCreate; 
-		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], where, "ASSIGNED", 1, false, "type", true] call BIS_fnc_taskCreate; 
-		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], where, "ASSIGNED", 1, false, "type", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], backUpCar01, "ASSIGNED", 1, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], backUpCar02, "ASSIGNED", 2, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], backUpCar03, "ASSIGNED", 3, false, "destroy", true] call BIS_fnc_taskCreate; 
 		}; 
 	
 			// needed condition to finish it: 
@@ -217,7 +225,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task08_Go", true] };
 	
 	// Task creation: 
-	[west, ["T08", "MainTask"], ["Ghost 2-1 has landed and is picking up the remaining forces of Delta - defend them!", "Defend Ghost 2-1!", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T08", "MainTask"], ["Ghost 2-1 has landed and is picking up the remaining forces of Delta - defend them!", "Defend Ghost 2-1!", "marker"], where, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task08_Done", true] };

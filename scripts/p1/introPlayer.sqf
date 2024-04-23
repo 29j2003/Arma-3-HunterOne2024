@@ -82,7 +82,9 @@ sleep 5.5;
 // dubbing and further sfx handeling: 
 [] spawn 
 {
-
+	// Line 01 Audio:
+	playSound3D [getMissionPath "dubbing\PA\PA02.ogg", paSpeaker01, false, getPosASL paSpeaker01, 5, 1, 100];
+	
 	// Line 01: 
 	line1 = ["PA", "Lt. Hawk, please report to Col. Rollins.", introPA, 3, 1, "UI"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
@@ -93,10 +95,7 @@ sleep 5.5;
 	
 		// Play knocking effect: 
 		playSound3D [getMissionPath "sfx\KnockDoorMetal.ogg", introKNOCKER, false, getPosASL introKNOCKER, 4, 1, 0];
-		
-	// Line 02: 
-	line1 = ["PA", "Lt. James Hawk, please report to Col. Rollins.", introPA, 1, 1, "UI"];
-	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+
 
 
 	//Delay: 
@@ -106,6 +105,14 @@ sleep 5.5;
 	line1 = ["Drawn", "James!", introKNOCKER, 1, 1, "3D"];
 	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 	
+	sleep 2; 
+	
+	// Line 02 Audio:
+	playSound3D [getMissionPath "dubbing\PA\PA02.ogg", paSpeaker01, false, getPosASL paSpeaker01, 5, 1, 100];
+	
+	// Line 02: 
+	line1 = ["PA", "Lt. James Hawk, please report to Col. Rollins.", introPA, 1, 1, "UI"];
+	[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 	
 	// Delay: 
 	sleep 2; 

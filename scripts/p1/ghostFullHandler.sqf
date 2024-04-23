@@ -5,9 +5,9 @@
 
 [] spawn 
 {
-	player setVariable ["evacHELOlanded", 0];
-	
-    waitUntil { (player getVariable ["evacHELOlanded", 0]==1)};
+	missionNamespace setVariable ["ghostEvacLanded", false];
+
+		waitUntil {missionNamespace getVariable ["ghostEvacLanded", true];};
 	
 			line1 = ["Ghost 2-1", "Delta, this is Ghost 2-1. We are on the ground. Load up, over.", evacHELOD, 1, 1, "UI"];
 			[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
@@ -29,9 +29,9 @@
 
 [] spawn 
 {
-	player setVariable ["evacReturn", 0];
-	
-    waitUntil {(player getVariable ["evacReturn", 0]==1)};
+	missionNamespace setVariable ["ghostEvacReturning", false];
+
+		waitUntil {missionNamespace getVariable ["ghostEvacReturning", true];};
 	
 	sleep 2; 
 	

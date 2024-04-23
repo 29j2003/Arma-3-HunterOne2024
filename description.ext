@@ -68,7 +68,7 @@ class CfgSounds
 	class Greet01
 	{
 		name = "Greet01";						
-		sound[] = { "dubbing\a_hub_350_greet_player_ALPB_0.ogg", 2, 1, 100 };				
+		sound[] = { "\dubbing\a_hub_350_greet_player_ALPB_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -80,7 +80,7 @@ class CfgSounds
 	class Greet02
 	{
 		name = "Greet02";						
-		sound[] = { "dubbing\a_hub_350_greet_player_BRA_0.ogg", 2, 1, 100 };				
+		sound[] = { "\dubbing\a_hub_350_greet_player_BRA_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -92,7 +92,7 @@ class CfgSounds
 	class Greet03
 	{
 		name = "Greet03";						
-		sound[] = { "dubbing\a_hub_350_greet_player_ALP_0.ogg", 2, 1, 100 };				
+		sound[] = { "\dubbing\a_hub_350_greet_player_ALP_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -104,7 +104,7 @@ class CfgSounds
 	class Greet04
 	{
 		name = "Greet04";						
-		sound[] = { "dubbing\a_hub_350_greet_player_CHA_0.ogg", 2, 1, 100 };				
+		sound[] = { "\dubbing\a_hub_350_greet_player_CHA_0.ogg", 2, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -116,7 +116,7 @@ class CfgSounds
 	class Ambient01
 	{
 		name = "Ambient01";						
-		sound[] = { "dubbing\c_in1_14_ambient_talk_04_ABA_0.ogg", 3, 1, 100 };				
+		sound[] = { "\dubbing\c_in1_14_ambient_talk_04_ABA_0.ogg", 3, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -128,7 +128,7 @@ class CfgSounds
 	class Ambient02
 	{
 		name = "Ambient02";						
-		sound[] = { "dubbing\c_in1_14_ambient_talk_04_ABB_0.ogg", 3, 1, 100 };				
+		sound[] = { "\dubbing\c_in1_14_ambient_talk_04_ABB_0.ogg", 3, 1, 100 };				
 		titles[] = { 0, "" };		// subtitles
 
 		titlesFont = "LCD14";		// OFP:R - xtitles font family
@@ -140,7 +140,7 @@ class CfgSounds
 	class Ambient03
 	{
 		name = "Ambient03";						
-		sound[] = { "dubbing\c_in1_14_ambient_talk_04_ABB_1.ogg", 3, 1, 100 };				
+		sound[] = { "\dubbing\c_in1_14_ambient_talk_04_ABB_1.ogg", 3, 1, 100 };				
 		titles[] = { 0, "" };		
 
 		titlesFont = "LCD14";		
