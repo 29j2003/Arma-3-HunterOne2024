@@ -21,11 +21,11 @@ missionNamespace setVariable ["Task04_Done", false];
 missionNamespace setVariable ["Task05_Go", false];
 missionNamespace setVariable ["Task05_Done", false];
 
-// Kill inbound QRF:
+// Wait for EVAC:
 missionNamespace setVariable ["Task06_Go", false];
 missionNamespace setVariable ["Task06_Done", false];
 
-// Wait for EVAC:
+// Kill inbound QRF:
 missionNamespace setVariable ["Task07_Go", false];
 missionNamespace setVariable ["Task07_Done", false];
 

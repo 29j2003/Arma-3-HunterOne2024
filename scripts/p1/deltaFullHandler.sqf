@@ -70,7 +70,7 @@ vehD02 setDamage 1;
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5;
 
-		line1 = ["Longbow", "Longbow to Hunter 1-1, contact to Delta has been lost.", officerBrief, "\vadubbingRL\RL20.ogg", 1, "UI"];
+		line1 = ["Longbow", "Longbow to Hunter 1-1, contact to Delta has been lost.", officerBrief, "\dubbing\RL20.ogg", 1, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 3; 
 

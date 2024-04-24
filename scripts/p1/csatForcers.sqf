@@ -43,3 +43,44 @@
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
+
+[] spawn
+{
+	// Condtion that activates once enemy CSAT teams are down to a certain point:
+	waitUntil 	{
+	({alive _x} count (units csatTEAM01)) < 2 &&
+	({alive _x} count (units csatTEAM02)) < 2 &&  
+	({alive _x} count (units csatTEAM03)) < 2 &&
+	({alive _x} count (units csatTEAMapc)) < 1 && 
+	({alive _x} count (units csatTEAM04)) < 2
+				}; 		
+	
+	// Kill Off remaining units: 
+	{ _x setDamage 1 } forEach units csatTEAM01; 
+	{ _x setDamage 1 } forEach units csatTEAM02; 
+	{ _x setDamage 1 } forEach units csatTEAM03; 
+	{ _x setDamage 1 } forEach units csatTEAM04; 
+	{ _x setDamage 1 } forEach units csatTEAMapc; 
+	
+	// Delay
+	sleep 2; 
+	
+	// Finish Task: 
+	missionNamespace setVariable ["Task05_Done", true];
+	
+		// Delay
+		sleep 2;
+		
+		// Convo. between Player and Officer (Ghost 2-1 starting flight) 
+		missionNamespace setVariable ["", true];
+		
+		// Activate GhostHandler: 
+		execVM "scripts\p1\ghostFullHandler.sqf"; 
+		
+			// Delay: 
+			sleep 8; 
+			
+
+	
+}; 
+

@@ -9,7 +9,7 @@ waitUntil {missionNamespace getVariable ['paSystemOn', true]};
 
 
 [] spawn {
-    // Define an array of sound filenames
+    // Define an array of sound filenames (may need some re-adjusting) 
     _soundFiles = [
         "dubbing\PA\PA03.ogg",
         "dubbing\PA\PA04.ogg",
@@ -25,7 +25,7 @@ waitUntil {missionNamespace getVariable ['paSystemOn', true]};
         // Randomly select a sound filename from the array
         _randomSound = selectRandom _soundFiles;
 
-        // Play the selected sound
+        // Play the selected sound with playSound3D 
         playSound3D [getMissionPath _randomSound, paSpeaker01, false, getPosASL paSpeaker01, 5, 1, 100];
         playSound3D [getMissionPath _randomSound, paSpeaker02, false, getPosASL paSpeaker02, 5, 1, 100];
 
@@ -33,6 +33,6 @@ waitUntil {missionNamespace getVariable ['paSystemOn', true]};
         _soundFiles = _soundFiles - [_randomSound];
 
         // Wait for a random duration
-        sleep (8 + random 30);
+        sleep (15 + random 45);
     };
 };

@@ -84,7 +84,61 @@
 
 
 ////////////////////////////////////////////////////////////
-//
+// Delta Defended (First time): 
+////////////////////////////////////////////////////////////
+
+[] spawn
+{
+	waitUntil {missionNamespace getVariable ["Task05_Done", true];};
+	
+	line1 = ["Frost", "No more tangos spotted. CSAT forces are neutralized.", coPilot, 2, 2, "3D"];
+	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+	sleep 0.5; 
+
+	line1 = ["You", "Good shooting Frost.", player, 2, 2, "3D"];
+	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+	sleep 3;
+
+	line1 = ["You", "Longbow, this is Hunter 1-1. Enemy assault forces are Tango Down. Awaiting further orders, over.", player, 2, 3, "3D"];
+	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+	sleep 0.5;
+
+	line1 = ["Longbow", "Roger that, Hunter 1-1. Evac is Oscar Mike. Stand by, out.", officerBrief, "\dubbing\RL\RL23.ogg", 1, "UI"];
+	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+	
+	sleep 1; 
+	
+			// Activate new Task: 
+			missionNamespace setVariable ["Task06_Go", true];
+			
+			// Ghost 2-1 Move activation: 
+			ghostMoveAO = true; 
+			
+			// sleep Random till new script activation: 
+			sleep (5 + random 8);
+			execVM "scripts\p1\qrfHandler.sqf";
+			
+}; 
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+// Delta Defended (First time): 
+////////////////////////////////////////////////////////////
+
+[] spawn
+{
+
+}; 
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+// QRF Inbound: 
 ////////////////////////////////////////////////////////////
 
 [] spawn
