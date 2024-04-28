@@ -8,18 +8,26 @@
 	missionNamespace setVariable ["ghostEvacLanded", false];
 
 		waitUntil {missionNamespace getVariable ["ghostEvacLanded", true];};
+		
+		missionNamespace setVariable ["Task06_Done", true]
+		missionNamespace setVariable ["Task08_Go", true]
 	
-			line1 = ["Ghost 2-1", "Delta, this is Ghost 2-1. We are on the ground. Load up, over.", evacHELOD, 1, 1, "UI"];
+			line1 = ["Ghost 2-1", "Delta, this is Ghost 2-1. We are on the ground. Load up, over.", evacHELOD, 1, 2, "UI"];
 			[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 			sleep 4;
  
-			line1 = ["Delta", "Delta is moving!", HO_SquadLead, 1, 1, "UI"];
+			_deltaGO = ["\dubbing\DL\DL07a.ogg", "\dubbing\DL\DL07b.ogg"]; 
+			_deltaGOused 01 selectRandom _deltaGO;
+ 
+			line1 = ["Delta", "Delta is moving!", HO_SquadLead, _deltaGOused, 1, "UI"];
 			[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-			evacHELOlanded = true; 
 			sleep 3;  
 	
-			line1 = ["Ghost 2-1", "Hunter 1-1, this is Ghost 2-1. Hold your position. Extraction may take some time, over.", evacHELOD, 1, 1, "UI"];
+			line1 = ["Ghost 2-1", "Hunter 1-1, this is Ghost 2-1. Hold your position. Extraction may take some time, over.", evacHELOD, 1, 2, "UI"];
 			[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+			
+		sleep 20; 
+		missionNamespace setVariable ["GunShip_Go", true]; 
 
 }; 
 
@@ -35,7 +43,7 @@
 	
 	sleep 2; 
 	
-		line1 = ["Ghost 2-1", "Ghost 2-1 to Longbow. Package is secure. RTB, over.", evacHELOD, 1, 1, "UI"];
+		line1 = ["Ghost 2-1", "Ghost 2-1 to Longbow. Package is secure. RTB, over.", evacHELOD, 1, 2, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 4; 
 

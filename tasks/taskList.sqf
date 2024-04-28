@@ -178,7 +178,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task06_Go", true] };
 	
 	// Task creation: 
-	[west, ["T06", "MainTask"], ["Defend the area and wait for the arrivel of Ghost 2-1!", "Wait for Ghost 2-1!", "marker"], where, "ASSIGNED", 1, true, "wait", true] call BIS_fnc_taskCreate; 
+	[west, ["T06", "MainTask"], ["Defend the area and wait for the arrivel of Ghost 2-1!", "Wait for Ghost 2-1!", "marker"], evacHELO, "ASSIGNED", 1, true, "wait", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task06_Done", true] };
@@ -196,14 +196,15 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task07_Go", true] };
 	
 	// Task creation: 
-	[west, ["T07", "MainTask"], ["Reinforcements are coming down, destroy them before they reach Delta! ", "Destroy incoming reinforcements! ", "marker"], objNull, "ASSIGNED", 0, true, "destroy", false] call BIS_fnc_taskCreate; 
+	[west, ["T07", "MainTask"], ["CSAT and AAF QRFs are driving towards Delta, destroy them before they can reach them! ", "Destroy reinforcements! ", "marker"], objNull, "ASSIGNED", 0, true, "destroy", false] call BIS_fnc_taskCreate; 
 	
 	// Sub Task Creation for each vehicle:: 
 		[] spawn 
 		{
-		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], backUpCar01, "ASSIGNED", 1, false, "destroy", true] call BIS_fnc_taskCreate; 
-		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], backUpCar02, "ASSIGNED", 2, false, "destroy", true] call BIS_fnc_taskCreate; 
-		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], backUpCar03, "ASSIGNED", 3, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], qrfVeh01, "ASSIGNED", 5, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], qrfVeh02, "ASSIGNED", 4, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], qrfVeh03, "ASSIGNED", 3, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub04", "T07"], ["", "CSAT Forces", "marker"], qrfVeh03, "ASSIGNED", 2, false, "destroy", true] call BIS_fnc_taskCreate; 
 		}; 
 	
 			// needed condition to finish it: 
@@ -211,9 +212,6 @@ sleep 2;
 			
 			// finish task: 
 			["T07", "SUCCEEDED", true] call BIS_fnc_taskSetState;
-			["T07sub01", "SUCCEEDED", true] call BIS_fnc_taskSetState;
-			["T07sub02", "SUCCEEDED", true] call BIS_fnc_taskSetState;
-			["T07sub03", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -225,7 +223,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task08_Go", true] };
 	
 	// Task creation: 
-	[west, ["T08", "MainTask"], ["Ghost 2-1 has landed and is picking up the remaining forces of Delta - defend them!", "Defend Ghost 2-1!", "marker"], where, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
+	[west, ["T08", "MainTask"], ["Ghost 2-1 has landed and is picking up the remaining forces of Delta - defend them!", "Defend Ghost 2-1!", "marker"], evacHELO, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task08_Done", true] };
@@ -243,7 +241,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task09_Go", true] };
 	
 	// Task creation: 
-	[west, ["T09", "MainTask"], ["CSAT have send an enemy gunship, destroy it before it reaches Delta and Ghost 2-1!", "Destroy incoming gunship!", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T09", "MainTask"], ["CSAT have send an enemy gunship, destroy it before it reaches Delta and Ghost 2-1!", "Destroy incoming gunship!", "marker"], qrfAirSupport01, "ASSIGNED", 1, true, "destroy", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task09_Done", true] };
@@ -261,7 +259,7 @@ sleep 2;
 	waitUntil { missionNamespace getVariable ["Task10_Go", true] };
 	
 	// Task creation: 
-	[west, ["T10", "MainTask"], ["You've finished your tasks and are requested back at base!", "Return back to base!", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+	[west, ["T10", "MainTask"], ["You've finished your tasks and are requested back at base!", "Return back to base!", "marker"], landingPadBase, "ASSIGNED", 1, true, "land", true] call BIS_fnc_taskCreate; 
 	
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task10_Done", true] };
