@@ -3,8 +3,8 @@
 // execute Intro script: 
 //execVM "scripts\p1\introPlayer.sqf"; 
 
-// execute task list:
-execVM "tasks\taskList.sqf"; 
+// executes first task: 
+execVM "scripts\p1\01_taskBrief.sqf"; 
 
 // execute Ambient stuff:
 execVM "scripts\p1\ambientStuff.sqf"; 

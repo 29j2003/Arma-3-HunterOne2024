@@ -1,3 +1,39 @@
+////////////////////////////////////////////////////////////////////////////
+/////// Task #01: Go to Officer and Brief scene:
+////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+// Task Spawn: 
+////////////////////////////////////////////////////////////////
+
+	[west, "MainTask", ["Tasklog for all tasks during this mission.", "Tasklog:", "marker"], objNull, "CREATED", -1, false, "documents", false] call BIS_fnc_taskCreate; 
+	sleep 1; 
+
+	// Task Vars;
+	missionNamespace setVariable ["Task01_Go", false];
+	missionNamespace setVariable ["Task01_Done", false];
+
+	// Task Activation:
+	waitUntil { missionNamespace getVariable ["Task01_Go", true] };
+	
+		// Task creation: 
+		[west, ["T01", "MainTask"], ["You have been orderd to Col. Rollins for your next assigment. ", "Report to Col. Rollins.", "marker"], officerBrief, "ASSIGNED", 1, true, "whiteboard", true] call BIS_fnc_taskCreate; 
+	
+			// needed condition to finish it: 
+			waitUntil { missionNamespace getVariable ["Task01_Done", true] };
+			
+			// finish task: 
+			["T01", "SUCCEEDED", true] call BIS_fnc_taskSetState;
+			sleep 1; 
+			
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+// After Task script:  
+////////////////////////////////////////////////////////////////
+
 // Pre AI and player stuff: 
 vehicleFlyBy01 enableSimulation true; 
 vehicleFlyBy01 hideObject false; 
@@ -6,7 +42,6 @@ officerBrief disableAI "ALL";
 [0, 99999, false, true] call BIS_fnc_cinemaBorder; 
 
 // Finish Task:
-
 
 // Animation, Talking and Map Animations set: 
 [] spawn
@@ -170,9 +205,10 @@ officerBrief disableAI "ALL";
 		// Enable Movement again: 
 		[1, 0, false, true] call BIS_fnc_cinemaBorder; 
 		
-		// Unlock building and new task: 
-		
-		missionNamespace setVariable ["Task02_Go", true];
+
+		/////////////////////// Task 02 script activation: ////////////////////////////////////////
+		execVM "scripts\tasks\02_taskArm.sqf"; 
+		//////////////////////////////////////////////////////////////////////////////////////////
 }; 
 
 

@@ -1,41 +1,53 @@
-// Full script for anything related with the QRF: 
+////////////////////////////////////////////////////////////////////////////
+/////// Task #07: 
+////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////
-// QRF activation: 
-////////////////////////////////////////////////////////////
-[] spawn 
+////////////////////////////////////////////////////////////////
+// Task Spawn: 
+////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+// Task script:  
+////////////////////////////////////////////////////////////////
+
+	[] spawn 
 {
 
-sleep 20; 
+	sleep (20+ random 10); 
 
-// Defining everything: 
-private _qrfTPpos01 = getPos pos1_veh1;
-private _qrfTPpos02 = getPos pos2_veh1;
-private _qrfTPpos03 = getPos pos3_veh1;
-private _playerPos = getPos player;
+	// Defining everything: 
+	private _qrfTPpos01 = getPos pos1_veh1;
+	private _qrfTPpos02 = getPos pos2_veh1;
+	private _qrfTPpos03 = getPos pos3_veh1;
+	private _playerPos = getPos player;
 
-// Array creation: 
-private _qrfArrayPos = [_qrfTPpos01, _qrfTPpos02, _qrfTPpos03];
+		// Array creation: 
+		private _qrfArrayPos = [_qrfTPpos01, _qrfTPpos02, _qrfTPpos03];
 
-// Finding player distance: 
-private _distances = _qrfArrayPos apply { _playerPos distance _x };
+		// Finding player distance: 
+		private _distances = _qrfArrayPos apply { _playerPos distance _x };
 
-private _minDistance = _distances select 0;
-private _nearestIndex = 0;
+		private _minDistance = _distances select 0;
+		private _nearestIndex = 0;
 
-	{
-		if (_x < _minDistance) then {
-			_minDistance = _x;
-			_nearestIndex = _forEachIndex;
-		};
-	} forEach _distances;
+				{
+					if (_x < _minDistance) then {
+					_minDistance = _x;
+					_nearestIndex = _forEachIndex;
+												};
+				} forEach _distances;
 
 
-// rremove the nearest teleporter from the array
-_qrfArrayPos deleteAt _nearestIndex;
+		// remove the nearest teleporter from the array
+		_qrfArrayPos deleteAt _nearestIndex;
 
-// Randomly select One of the remaining teleporters
-private _selectedTeleport = selectRandom _qrfArrayPos;
+	// Randomly select One of the remaining teleporters
+	private _selectedTeleport = selectRandom _qrfArrayPos;
 
 
 	if (_selectedTeleport isEqualTo _qrfTPpos01) then {
@@ -82,9 +94,10 @@ private _selectedTeleport = selectRandom _qrfArrayPos;
 
 }; 
 
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
+waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
+	
+
+
 
 
 
@@ -92,7 +105,7 @@ private _selectedTeleport = selectRandom _qrfArrayPos;
 {
 
 	// Starting Delay: 
-	sleep 30; 
+	sleep 1;
 		
 		
 		// Line
@@ -109,9 +122,18 @@ private _selectedTeleport = selectRandom _qrfArrayPos;
 		line1 = ["You", "Solid copy, Longbow. Hunter 1-1 is on intercept course. Out.", player, 4, 1, "3D"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 1; 
-		
-		// Enable Task: 
-		missionNamespace setVariable ["Task07_Go", true];
+	
+	// Task creation: 
+	[west, ["T07", "MainTask"], ["CSAT and AAF QRFs are driving towards Delta, destroy them before they can reach them! ", "Destroy reinforcements! ", "marker"], objNull, "ASSIGNED", 0, true, "destroy", false] call BIS_fnc_taskCreate; 
+	
+	// Sub Task Creation for each vehicle:: 
+		[] spawn 
+		{
+		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], qrfVeh01, "ASSIGNED", 5, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], qrfVeh02, "ASSIGNED", 4, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], qrfVeh03, "ASSIGNED", 3, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub04", "T07"], ["", "CSAT Forces", "marker"], qrfVeh03, "ASSIGNED", 2, false, "destroy", true] call BIS_fnc_taskCreate; 
+		}; 
 		 
 	
 		////////////////////////////////////////////////
@@ -162,7 +184,10 @@ private _selectedTeleport = selectRandom _qrfArrayPos;
 			waitUntil { !alive qrfVeh01 && !alive qrfVeh02 && !alive qrfVeh03 && {alive _x} count (units qrfGroup04)) < 2};
 			sleep 1; 
 			
-				missionNamespace setVariable ["Task07_Done", true];
+		
+			missionNamespace setVariable ["Task07_Done", true];
+			// finish task: 
+			["T07", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 				sleep 2; 
 		
 				// Line
@@ -174,7 +199,9 @@ private _selectedTeleport = selectRandom _qrfArrayPos;
 				line1 = ["Longbow","Copy on all. Good work out there. Continue to hold position at Delta. Out.", officerBrief, "\dubbing\RL\RL27.ogg", 1, "UI"];
 				[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		////////////////////////////////////////////////
-
-				// execute new script: 
-				execVM ""; 
+ 
 }; 
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
