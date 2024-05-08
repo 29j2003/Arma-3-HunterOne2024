@@ -4,11 +4,11 @@
 //execVM "scripts\p1\introPlayer.sqf"; 
 
 // executes first task: 
-execVM "scripts\p1\01_taskBrief.sqf"; 
+execVM "tasks\01_taskBrief.sqf"; 
 
 // execute Ambient stuff:
-execVM "scripts\p1\ambientStuff.sqf"; 
-execVM 'scripts\p1\paSystem.sqf'; 
+execVM "scripts\ambientStuff.sqf"; 
+execVM 'scripts\paSystem.sqf'; 
 
 // Hide Layer: 
 {

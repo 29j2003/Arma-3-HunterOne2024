@@ -6,6 +6,8 @@
 // Task Spawn: 
 ////////////////////////////////////////////////////////////////
 
+		missionNamespace setVariable ["Task04_Done", false];
+
 	[west, ["T04", "MainTask"], ["Fly to the area of operations to support Delta!", "Fly to the AO!", "marker"], HO_SquadLead, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
 
 ////////////////////////////////////////////////////////////////
@@ -19,7 +21,7 @@
 			[] spawn 
 				{ 
 					// Delay: 
-					sleep (5+ random 10) 
+					sleep (5 + random 10);
 
 					// Dialog: 
 		
@@ -68,4 +70,4 @@
 			["T04", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			
 			// new task: 
-			execVM "scripts\tasks\05_taskSupp.sqf"; 
+			execVM "tasks\05_taskSupp.sqf"; 

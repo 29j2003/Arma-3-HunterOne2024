@@ -43,7 +43,7 @@
 			["T02", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 
 			// start new task script: 
-			execVM "scripts\tasks\03_taskGetIn.sqf"; 
+			execVM "tasks\03_taskGetIn.sqf"; 
 			
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////

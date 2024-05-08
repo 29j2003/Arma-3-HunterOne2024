@@ -6,12 +6,13 @@
 // Task Spawn: 
 ////////////////////////////////////////////////////////////////
 
-
+		missionNamespace setVariable ["Task05_Done", false];
+		
 		line1 = ["You", "Longbow, this is Hunter 1-1. We're Oscar Mike to the AO, over.", player, 4, 2, "3D"];
-		line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 
-		line1 = ["Longbow", "Roger that, Hunter 1-1. Stand by for patch through to Delta, over.", officerBrief, "\dubbing\RL\RL17.ogg", 1, "UI"];
+		line1 = ["Longbow", "Understood! Patching you through to Delta, out!", officerBrief, "\dubbing\RL\RL17.ogg", 1, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 3; 
 		
@@ -123,6 +124,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// start new tasks: 
 			sleep 1; 
-					execVM "scripts\tasks\06_taskWait.sqf"; 
-					execVM "scripts\tasks\07_taskQRF.sqf"; 
+					execVM "tasks\06_taskWait.sqf"; 
+					execVM "tasks\07_taskQRF.sqf"; 
 			

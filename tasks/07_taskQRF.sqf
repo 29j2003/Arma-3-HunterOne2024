@@ -14,11 +14,11 @@
 ////////////////////////////////////////////////////////////////
 // Task script:  
 ////////////////////////////////////////////////////////////////
-
+sleep (20 + random 10); 
 	[] spawn 
 {
 
-	sleep (20+ random 10); 
+	
 
 	// Defining everything: 
 	private _qrfTPpos01 = getPos pos1_veh1;
@@ -71,9 +71,9 @@
 	sleep 3; 
 	
 	// Waypoints: 
-	qrfVeh01D doMove (position natoDELTA);
-	qrfVeh02D doMove (position natoDELTA);
-	qrfVeh03D doMove (position natoDELTA);
+	qrfVeh01D doMove (position HO_SquadLead);
+	qrfVeh02D doMove (position HO_SquadLead);
+	qrfVeh03D doMove (position HO_SquadLead);
 	
 	// Enable Veh simulations: 
 	qrfVeh01 enableSimulation true; 
@@ -174,7 +174,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		//////////////////////////////
 		[] spawn 
 		{
-		waitUntil {  {alive _x} count (units qrfGroup04)) < 2}; // Transport Units
+		waitUntil {  {alive _x} count (units qrfGroup04) < 2}; // Transport Units
 			{ _x setDamage 1; } forEach units qrfGroup04;
 		};
 		//////////////////////////////

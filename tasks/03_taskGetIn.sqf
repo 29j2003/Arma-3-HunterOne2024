@@ -16,11 +16,13 @@
 // Task script:  
 ////////////////////////////////////////////////////////////////
 
-
+sleep 1; 
 
 	[] spawn
 		{
 			// Variable: 
+			missionNamespace setVariable ["Task03_Done", false];
+			
 			missionNamespace setVariable ["coPilotIntro_Go", false];
 
 			waitUntil {missionNamespace getVariable ["coPilotIntro_Go", true];}; 
@@ -44,7 +46,7 @@
 				[] spawn
 					{
 
-						line1 = ["Frost", "Hunter 1-2 reporting in!", coPilot, 2, 0, "3D"];
+						line1 = ["Frost", "Hunter 1-2 reporting in!", coPilot, "\dubbing\MF\MF01.ogg", 1, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 						sleep 2;
 				
@@ -52,7 +54,7 @@
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 						sleep 2; 
 				
-						line1 = ["Frost", "Bird's gunned up, ready to roll, sir.", coPilot, 2, 0, "3D"];
+						line1 = ["Frost", "Bird's gunned up, ready to roll, sir.", coPilot, "\dubbing\MF\MF02.ogg", 1, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 						sleep 3; 
 					
@@ -60,7 +62,7 @@
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 						sleep 3; 
 				
-						line1 = ["Frost", "Affirmative, sir! Wheels up ASAP.", coPilot, 2, 0, "3D"];
+						line1 = ["Frost", "Affirmative, sir! Wheels up ASAP.", coPilot, "\dubbing\MF\MF03.ogg", 1, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 					};
 
@@ -93,6 +95,8 @@
 			
 		// finish task: 
 		["T03", "SUCCEEDED", true] call BIS_fnc_taskSetState;
+		
+		missionNamespace setVariable ["coPilotWeaponsCheck_Go", true];
 
 ////////////////////////////////////////////////////////////////
 // Second Part: 
@@ -160,11 +164,11 @@
 		
 		// Line 06: 
 		line1 = ["You", "Comms check - Frost how is it looking for you?", player, 4, 0, "3D"];
-		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 		
 		// Line 07: 
-		line1 = ["Frost", "Systems are all green on my end. 1-2 ready to engage.", coPilot, 5, 0, "UI"];
+		line1 = ["Frost", "Systems are all green on my end. 1-2 ready to engage.", coPilot, "\dubbing\MF\MF04.ogg", 1, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 		
@@ -185,7 +189,7 @@
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		execVM "scripts\tasks\04_taskGoAO.sqf"; 
+		execVM "tasks\04_taskGoAO.sqf"; 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }; 		
