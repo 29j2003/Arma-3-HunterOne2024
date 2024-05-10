@@ -27,7 +27,7 @@
 			sleep 4;
  
 			_deltaGO = ["\dubbing\DL\DL07a.ogg", "\dubbing\DL\DL07b.ogg"]; 
-			_deltaGOused 01 selectRandom _deltaGO;
+			_deltaGOused = selectRandom _deltaGO;
  
 			line1 = ["Delta", "Delta is moving!", HO_SquadLead, _deltaGOused, 1, "UI"];
 			[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
@@ -55,7 +55,7 @@
 					};
 					
 				missionNamespace setVariable ["ghostEvacReturning", true];
-				missionNamespace setVariable ["Task08_Done", true]
+				missionNamespace setVariable ["Task08_Done", true];
 				ghostReturn = true; 
 				evacHELOd enableAI "all"; 
 				

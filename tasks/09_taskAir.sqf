@@ -6,8 +6,7 @@
 // Task Spawn: 
 ////////////////////////////////////////////////////////////////
 
-	// Task creation: 
-	[west, ["T09", "MainTask"], ["CSAT have send an enemy gunship, destroy it before it reaches Delta and Ghost 2-1!", "Destroy incoming gunship!", "marker"], qrfAirSupport01, "ASSIGNED", 1, true, "destroy", true] call BIS_fnc_taskCreate; 
+	
 	
 
 
@@ -23,7 +22,7 @@
 
 	qrfAirSupport01 enableSimulation true; 
 	qrfAirSupport01 hideObject false; 
-	//qrfAirSupport01 moveTo //obj; 
+	qrfAirSupport01 doMove (position HO_SquadLead);
 	
 	
 	
@@ -37,6 +36,8 @@
 		line1 = ["You", "Wilco, Hunter 1-1 moving to engage. Out.", player, 4, 1, "3D"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	
+	// Task creation: 
+	[west, ["T09", "MainTask"], ["CSAT have send an enemy gunship, destroy it before it reaches Delta and Ghost 2-1!", "Destroy incoming gunship!", "marker"], qrfAirSupport01, "ASSIGNED", 1, true, "destroy", true] call BIS_fnc_taskCreate; 
 	
 	waitUntil { !alive qrfAirSupport01 }; 
 	sleep 2; 

@@ -6,6 +6,8 @@
 // Task Spawn: 
 ////////////////////////////////////////////////////////////////
 
+missionNamespace setVariable ["Task06_Done", false]
+
 	line1 = ["Frost", "No more tangos spotted. CSAT forces are neutralized.", coPilot, 2, 2, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5; 

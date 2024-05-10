@@ -1,5 +1,17 @@
 // Init.sqf stat executes right at the beginning: 
 
+
+missionNamespace setVariable ["Task01_Done", false];
+missionNamespace setVariable ["Task02_Done", false];
+missionNamespace setVariable ["Task03_Done", false];
+missionNamespace setVariable ["Task04_Done", false];
+missionNamespace setVariable ["Task05_Done", false];
+missionNamespace setVariable ["Task06_Done", false];
+missionNamespace setVariable ["Task07_Done", false];
+missionNamespace setVariable ["Task08_Done", false];
+missionNamespace setVariable ["Task09_Done", false];
+missionNamespace setVariable ["Task10_Done", false];
+
 // execute Intro script: 
 //execVM "scripts\p1\introPlayer.sqf"; 
 

@@ -2,22 +2,17 @@
 ////////////////////////////////////////////////////////////////////////////
 /////// Task #11: 
 ////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////
-// Task Spawn: 
-////////////////////////////////////////////////////////////////
-
-	
-
-
-
-
-////////////////////////////////////////////////////////////////
+/////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////
 // Task script:  
 ////////////////////////////////////////////////////////////////
 
+
+{
+    _x enableSimulation true;
+    _x hideObject false;
+} forEach (getMissionLayerEntities "SupportObjective" select 0);
 
 	// Map related changes: 
 	"markerFront03" setMarkerAlpha 0; 
@@ -52,7 +47,7 @@
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5;  
 
-	line1 = ["You", "Hunter 1-1 cycling and awaiting orders.", officerBrief, 3, 1, "UI"];
+	line1 = ["You", "Hunter 1-1 cycling and awaiting orders.", player, 3, 1, "UI"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5;  
 
@@ -62,11 +57,11 @@
 	//////////////////////
 			// Tasks: 
 	
-			[west, ["T11", "MainTask"], ["Squad Nomad has come under heavy fire by tanks and infantry. They have requested support! ", "Support Nomad! ", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+			[west, ["T11", "MainTask"], ["Squad Nomad has come under heavy fire by tanks and infantry. They have requested support! ", "Support Nomad! ", "marker"], nomadSL, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
 			
-					[west, ["T12", "T11"], ["AAF forces have deployed at least two tanks along Kalochori, destory them at all cost! ", "Destroy all AAF tanks! ", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+					[west, ["T12", "T11"], ["AAF forces have deployed at least two tanks along Kalochori, destory them at all cost! ", "Destroy all AAF tanks! ", "marker"], markerPart2, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
 			
-					[west, ["T13", "T11"], ["Nomad has called for support for their on-going offensive at Kalochori. ", "Destroy AAF forces around Kalochori! ", "marker"], where, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+					[west, ["T13", "T11"], ["Nomad has called for support for their on-going offensive at Kalochori. ", "Destroy AAF forces around Kalochori! ", "marker"], markerPart2, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
 					
 	//////////////////////
 	line1 = ["You", "Copy that, Longbow. Any intel on enemy positions, over?", player, 3, 1, "3D"];
@@ -151,6 +146,7 @@
 					// Finish sub-task here: 
 					// 
 					
+					missionNamespace setVariable ["nomSub01", true]
 					["T12", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			}; 
 			
@@ -184,7 +180,8 @@
 			[] spawn 
 			{
 			
-			waitUntil {}; 
+			waitUntil { {alive _x} count (units aafGroup01) < 2}; 
+			missionNamespace setVariable ["nomSub02", true]
 			["T13", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			}; 
 			
@@ -233,7 +230,7 @@
 			/////////////
 			/////////////
 			
-			waitUntil {};  
+			waitUntil { missionNamespace getVariable ["nomSub01", true] AND missionNamespace getVariable ["nomSub02", true] };  
 			["T11", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			
 			// New Task: 

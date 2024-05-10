@@ -129,10 +129,10 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 	// Sub Task Creation for each vehicle:: 
 		[] spawn 
 		{
-		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], qrfVeh01, "ASSIGNED", 5, false, "destroy", true] call BIS_fnc_taskCreate; 
-		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], qrfVeh02, "ASSIGNED", 4, false, "destroy", true] call BIS_fnc_taskCreate; 
-		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], qrfVeh03, "ASSIGNED", 3, false, "destroy", true] call BIS_fnc_taskCreate; 
-		[west, ["T07sub04", "T07"], ["", "CSAT Forces", "marker"], qrfVeh03, "ASSIGNED", 2, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub04", "T07"], ["", "CSAT Forces", "marker"], qrfVeh03, "ASSIGNED", 5, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], qrfVeh02, "ASSIGNED", 3, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], qrfVeh03, "ASSIGNED", 4, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], qrfVeh01, "ASSIGNED", 2, false, "destroy", true] call BIS_fnc_taskCreate; 
 		}; 
 		 
 	
@@ -147,13 +147,20 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		T07sub03 setSimpleTaskTarget [qrfVeh03, true];
 		T07sub04 setSimpleTaskTarget [qrfVeh03, true];
 		
+				missionNamespace setVariable ["grp01_Done", false];
+						missionNamespace setVariable ["grp02_Done", false];
+								missionNamespace setVariable ["grp03_Done", false];
+										missionNamespace setVariable ["grp04_Done", false];
+										
 		//////////////////////////////
 		//////////////////////////////
+		[] spawn 
 		{
 		waitUntil { (!alive qrfVeh01) || (damage qrfVeh01 > 0.6) }; // Stider
 			["T07sub01", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			qrfVeh01 setDamage 1; 
 			{ _x setDamage 1; } forEach units qrfGroup01;
+			missionNamespace setVariable ["grp01_Done", true];
 		};
 		//////////////////////////////
 		[] spawn 
@@ -162,6 +169,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 			["T07sub02", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			qrfVeh02 setDamage 1; 
 			{ _x setDamage 1; } forEach units qrfGroup02;
+			missionNamespace setVariable ["grp02_Done", true];
 		};
 		//////////////////////////////	
 		[] spawn 
@@ -170,18 +178,22 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 			["T07sub03", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			qrfVeh03 setDamage 1; 
 			{ _x setDamage 1; } forEach units qrfGroup03;
+			missionNamespace setVariable ["grp03_Done", true];
 		};
 		//////////////////////////////
 		[] spawn 
 		{
 		waitUntil {  {alive _x} count (units qrfGroup04) < 2}; // Transport Units
 			{ _x setDamage 1; } forEach units qrfGroup04;
+			missionNamespace setVariable ["grp04_Done", true];
 		};
 		//////////////////////////////
 		//////////////////////////////
 		
 			// Finish Tasks all:
-			waitUntil { !alive qrfVeh01 && !alive qrfVeh02 && !alive qrfVeh03 && {alive _x} count (units qrfGroup04)) < 2};
+			waitUntil { missionNamespace getVariable ["grp01_Done", true] AND missionNamespace getVariable ["grp02_Done", true] AND missionNamespace getVariable ["grp03_Done", true] AND missionNamespace getVariable ["grp04_Done", true] }; 
+
+			
 			sleep 1; 
 			
 		
