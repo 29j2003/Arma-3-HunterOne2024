@@ -14,6 +14,7 @@
 ////////////////////////////////////////////////////////////////
 // Task script:  
 ////////////////////////////////////////////////////////////////
+missionNamespace setVariable ["qrfInboundAO", false];
 sleep (20 + random 10); 
 	[] spawn 
 {
@@ -122,6 +123,17 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		line1 = ["You", "Solid copy, Longbow. Hunter 1-1 is on intercept course. Out.", player, 4, 1, "3D"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 1; 
+		
+		sleep 2; 
+		
+		line1 = ["You", "Frost, you know what to do.", player, 4, 1, "3D"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;		
+		sleep 0.5; 
+		
+		line1 = ["Frost", "Copy, engaging!", coPilot, "\dubbing\MF\MF09.ogg", 1, "UI"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		sleep 0.5; 
+		
 	
 	// Task creation: 
 	[west, ["T07", "MainTask"], ["CSAT and AAF QRFs are driving towards Delta, destroy them before they can reach them! ", "Destroy reinforcements! ", "marker"], objNull, "ASSIGNED", 0, true, "destroy", false] call BIS_fnc_taskCreate; 

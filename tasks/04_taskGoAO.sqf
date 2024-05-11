@@ -6,6 +6,8 @@
 // Task Spawn: 
 ////////////////////////////////////////////////////////////////
 
+
+
 		missionNamespace setVariable ["Task04_Done", false];
 
 	[west, ["T04", "MainTask"], ["Fly to the area of operations to support Delta!", "Fly to the AO!", "marker"], HO_SquadLead, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
@@ -39,7 +41,10 @@
 					line1 = ["You", "Acknowledged Longbow. Hunter 1-1 out.", player, 4, 1, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 					sleep 0.5; 
-			
+					
+					// execVM re Arm script CoPilot: 
+					execVM "scripts\coPilotChecks.sqf";
+					
 					// Delay: 
 					sleep 2;
 

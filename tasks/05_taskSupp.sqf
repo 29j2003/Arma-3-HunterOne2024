@@ -7,7 +7,9 @@
 ////////////////////////////////////////////////////////////////
 
 		missionNamespace setVariable ["Task05_Done", false];
-		
+
+[] spawn 
+{	
 		line1 = ["You", "Longbow, this is Hunter 1-1. We're Oscar Mike to the AO, over.", player, 4, 2, "3D"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
@@ -28,6 +30,17 @@
 				/////////////////////
 				[west, ["T05", "MainTask"], ["Support Delta at all cost!", "Support Delta!", "marker"], HO_SquadLead, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
 				/////////////////////
+				
+		sleep 2; 
+		
+		line1 = ["You", "You heard that man Frost, let’s give ‘em a show!", player, 4, 2, "3D"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		sleep 0.5;
+		
+		line1 = ["Frost", "Copy, engaging!", coPilot, "\dubbing\MF\MF07.ogg", 1, "UI"];
+		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+		sleep 0.5; 
+}; 
 
 
 ////////////////////////////////////////////////////////////////

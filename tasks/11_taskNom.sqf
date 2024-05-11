@@ -57,11 +57,11 @@
 	//////////////////////
 			// Tasks: 
 	
-			[west, ["T11", "MainTask"], ["Squad Nomad has come under heavy fire by tanks and infantry. They have requested support! ", "Support Nomad! ", "marker"], nomadSL, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+			[west, ["T11", "MainTask"], ["Squad Nomad has come under heavy fire by tanks and infantry. They have requested support! ", "Support Nomad! ", "marker"], nomadSL, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
 			
-					[west, ["T12", "T11"], ["AAF forces have deployed at least two tanks along Kalochori, destory them at all cost! ", "Destroy all AAF tanks! ", "marker"], markerPart2, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+					[west, ["T12", "T11"], ["AAF forces have deployed at least two tanks along Kalochori, destory them at all cost! ", "Destroy all AAF tanks! ", "marker"], hiddenMarker, "ASSIGNED", 1, true, "destroy", true] call BIS_fnc_taskCreate; 
 			
-					[west, ["T13", "T11"], ["Nomad has called for support for their on-going offensive at Kalochori. ", "Destroy AAF forces around Kalochori! ", "marker"], markerPart2, "ASSIGNED", 1, true, "type", true] call BIS_fnc_taskCreate; 
+					[west, ["T13", "T11"], ["Nomad has called for support for their on-going offensive at Kalochori. ", "Destroy AAF forces around Kalochori! ", "marker"], hiddenMarker, "ASSIGNED", 1, true, "attack", true] call BIS_fnc_taskCreate; 
 					
 	//////////////////////
 	line1 = ["You", "Copy that, Longbow. Any intel on enemy positions, over?", player, 3, 1, "3D"];
@@ -134,19 +134,19 @@
 			
 			waitUntil { !alive aafMBT01 || !alive aafMBT02}; 
 					
-					line1 = ["Frost", "One destroyed, one to go.", coPilot, 2, 0, "3D"];
+					line1 = ["Frost", "One destroyed, one to go.", coPilot, "\dubbing\MF\MF11.ogg", 0, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 					sleep 0.5;			
 			
 			waitUntil { !alive aafMBT01 AND !alive aafMBT02};  
 
-					line1 = ["Frost", "Boom.", coPilot, 2, 0, "3D"];
+					line1 = ["Frost", "Boom. We got 'em.", coPilot, "\dubbing\MF\MF12.ogg", 0, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;	
 
 					// Finish sub-task here: 
 					// 
 					
-					missionNamespace setVariable ["nomSub01", true]
+					missionNamespace setVariable ["nomSub01", true];
 					["T12", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			}; 
 			
@@ -154,6 +154,7 @@
 			{
 					// Drone Stream: 
 					[LiveDroneSource, aafMBT01, player] call BIS_fnc_liveFeed;
+					sleep 1; 
 					BIS_liveFeed camPrepareFOV 0.1;
 					BIS_liveFeed camCommitPrepared 0;
 					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP;
@@ -164,6 +165,7 @@
 					sleep 1; 
 					
 					[LiveDroneSource, aafMBT02, player] call BIS_fnc_liveFeed;
+					sleep 1; 
 					BIS_liveFeed camPrepareFOV 0.1;
 					BIS_liveFeed camCommitPrepared 0;
 					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 					
@@ -181,7 +183,7 @@
 			{
 			
 			waitUntil { {alive _x} count (units aafGroup01) < 2}; 
-			missionNamespace setVariable ["nomSub02", true]
+			missionNamespace setVariable ["nomSub02", true];
 			["T13", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			}; 
 			
@@ -227,6 +229,8 @@
 			["NomadDead", false, true, true, false] call BIS_fnc_endMission;
 			}; 
 			
+			missionNamespace setVariable ["nomSub01", false];
+			missionNamespace setVariable ["nomSub02", false];
 			/////////////
 			/////////////
 			

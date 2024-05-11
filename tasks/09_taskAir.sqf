@@ -43,7 +43,7 @@
 	sleep 2; 
 		
 		["T09", "SUCCEEDED", true] call BIS_fnc_taskSetState;
-		line1 = ["Frost", "", coPilot, 4, 1, "UI"];
+		line1 = ["Frost", "She's going down!", coPilot, "\dubbing\MF\MF10.ogg", 1, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 5;
 		
