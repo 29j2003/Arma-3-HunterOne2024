@@ -58,6 +58,7 @@
 					[west, ["opt01", "OptTask"], ["Resupply yourself if needed.", "Resupply", "marker"], armoryBuilding, "CREATED", -1, true, "rearm", false] call BIS_fnc_taskCreate;
 
 					// Task Area switch: 
+					missionNamespace setVariable ["reArm02_Go", false]
 					waitUntil {missionNamespace getVariable ["reArm02_Go", true];}; 
 		
 					// setTaskDesti: 

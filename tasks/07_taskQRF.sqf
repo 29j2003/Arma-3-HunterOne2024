@@ -120,13 +120,13 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		sleep 0.5;
 
 		// Line
-		line1 = ["You", "Solid copy, Longbow. Hunter 1-1 is on intercept course. Out.", player, 4, 1, "3D"];
+		line1 = ["You", "Solid copy, Longbow. Hunter 1-1 is on intercept course. Out.", player, 2, 1, "3D"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 1; 
 		
-		sleep 2; 
+		playMusic "LeadTrack02_F_Mark"; 
 		
-		line1 = ["You", "Frost, you know what to do.", player, 4, 1, "3D"];
+		line1 = ["You", "Frost, you know what to do.", player, 2, 1, "3D"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;		
 		sleep 0.5; 
 		
@@ -141,7 +141,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 	// Sub Task Creation for each vehicle:: 
 		[] spawn 
 		{
-		[west, ["T07sub04", "T07"], ["", "CSAT Forces", "marker"], qrfVeh03, "ASSIGNED", 5, false, "destroy", true] call BIS_fnc_taskCreate; 
+		[west, ["T07sub04", "T07"], ["", "CSAT Forces", "marker"], qrfGroupCSAT, "ASSIGNED", 5, false, "destroy", true] call BIS_fnc_taskCreate; 
 		[west, ["T07sub02", "T07"], ["", "FV-720 Mora", "marker"], qrfVeh02, "ASSIGNED", 3, false, "destroy", true] call BIS_fnc_taskCreate; 
 		[west, ["T07sub03", "T07"], ["", "Tempest Transport", "marker"], qrfVeh03, "ASSIGNED", 4, false, "destroy", true] call BIS_fnc_taskCreate; 
 		[west, ["T07sub01", "T07"], ["", "Strider HMG", "marker"], qrfVeh01, "ASSIGNED", 2, false, "destroy", true] call BIS_fnc_taskCreate; 
@@ -152,12 +152,6 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		// Second stage; after QRF has been destroyed: 
 		
 		// Damage and Task handeling: 
-		[] spawn 
-		
-		T07sub01 setSimpleTaskTarget [qrfVeh01, true];
-		T07sub02 setSimpleTaskTarget [qrfVeh02, true];
-		T07sub03 setSimpleTaskTarget [qrfVeh03, true];
-		T07sub04 setSimpleTaskTarget [qrfVeh03, true];
 		
 				missionNamespace setVariable ["grp01_Done", false];
 						missionNamespace setVariable ["grp02_Done", false];
@@ -195,7 +189,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		//////////////////////////////
 		[] spawn 
 		{
-		waitUntil {  {alive _x} count (units qrfGroup04) < 2}; // Transport Units
+		waitUntil {  {alive _x} count (units qrfGroup04) < 3}; // Transport Units
 			{ _x setDamage 1; } forEach units qrfGroup04;
 			missionNamespace setVariable ["grp04_Done", true];
 		};

@@ -104,8 +104,6 @@ sleep 1;
 [] spawn
 {
 
-	// Go Var: 
-	missionNamespace setVariable ["coPilotWeaponsCheck_Go", false];
 
 	// wait until var is active
 	waitUntil {missionNamespace getVariable ["coPilotWeaponsCheck_Go", true];}; 
