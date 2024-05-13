@@ -38,16 +38,12 @@
 					sleep 0.5; 
 
 					// Line 03: 
-					line1 = ["You", "Acknowledged Longbow. Hunter 1-1 out.", player, 4, 1, "3D"];
+					line1 = ["You", "Acknowledged Longbow. Hunter 1-1 out.", player, 2, 1, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 					sleep 0.5; 
 					
 					// execVM re Arm script CoPilot: 
 					execVM "scripts\coPilotChecks.sqf";
-					
-					// Delay: 
-					sleep 2;
-
 
 
 					// Creates Optional Task: 
@@ -55,10 +51,10 @@
 					sleep 2; 
 
 					// Creates RearmTask: 
-					[west, ["opt01", "OptTask"], ["Resupply yourself if needed.", "Resupply", "marker"], armoryBuilding, "CREATED", -1, true, "rearm", false] call BIS_fnc_taskCreate;
+					[west, ["opt01", "OptTask"], ["Resupply yourself if needed.", "Resupply", "marker"], landingPadBase, "CREATED", -1, true, "rearm", false] call BIS_fnc_taskCreate;
 
 					// Task Area switch: 
-					missionNamespace setVariable ["reArm02_Go", false]
+					missionNamespace setVariable ["reArm02_Go", false];
 					waitUntil {missionNamespace getVariable ["reArm02_Go", true];}; 
 		
 					// setTaskDesti: 
@@ -74,6 +70,8 @@
 			
 			// finish task: 
 			["T04", "SUCCEEDED", true] call BIS_fnc_taskSetState;
+			saveGame; 
 			
 			// new task: 
 			execVM "tasks\05_taskSupp.sqf"; 
+			

@@ -37,7 +37,7 @@
 			[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 			
 			
-	
+				{_x enableAI "ALL";} foreach units group HO_SquadLead;
 				{_x assignAsCargo evacHELO} foreach units group HO_SquadLead;
 				sleep 60; 
 
@@ -114,4 +114,4 @@
 			["T08", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			
 			// New task if needed: 
-			execVM "scripts\tasks\09_taskAir.sqf"; 
+			

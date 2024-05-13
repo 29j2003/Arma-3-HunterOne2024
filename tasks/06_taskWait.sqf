@@ -14,7 +14,7 @@ missionNamespace setVariable ["Task06_Done", false];
 
 	line1 = ["You", "Good shooting Frost.", player, 2, 2, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-	sleep 3;
+	sleep 2;
 
 	line1 = ["You", "Longbow, this is Hunter 1-1. Enemy assault forces are Tango Down. Awaiting further orders, over.", player, 2, 3, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
@@ -24,6 +24,7 @@ missionNamespace setVariable ["Task06_Done", false];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	
 	sleep 1; 
+	saveGame; 
 			
 			// Ghost 2-1 Move activation: 
 			ghostMoveAO = true; 

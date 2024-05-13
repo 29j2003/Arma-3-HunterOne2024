@@ -46,6 +46,9 @@ officerBrief disableAI "ALL";
 // Animation, Talking and Map Animations set: 
 [] spawn
 { 
+
+
+		12 fadeMusic 0; 
 		// Line RL01: 
 		line1 = ["Rollins", "Hope you are rested James – high-priority mission for you.", officerBrief, "\dubbing\RL\RL01.ogg", 0, "3D"];
 		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
@@ -194,16 +197,22 @@ officerBrief disableAI "ALL";
 		sleep 0.5; 
 		
 		// Line RL14:
-		line1 = ["Rollins", "Dismissed.", officerBrief, "\dubbing\RL\RL14.ogg", 2, "3D"];
+		line1 = ["Rollins", "Dismissed.", officerBrief, "\dubbing\RL\RL14.ogg", 1, "3D"];
 		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 		sleep 0.5; 
 		
 		// Line PL03: 
-		line1 = ["You", "Sir.", player, 4, 0, "3D"];
+		line1 = ["You", "Sir.", player, 3, 0, "3D"];
 		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 		
 		// Enable Movement again: 
 		[1, 0, false, true] call BIS_fnc_cinemaBorder; 
+		
+		// 
+		playMusic ""; 
+		sleep 0.5; 
+		0 fadeMusic 1;
+		sleep 0.5; 
 		
 
 		/////////////////////// Task 02 script activation: ////////////////////////////////////////

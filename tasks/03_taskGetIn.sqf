@@ -48,19 +48,19 @@ sleep 1;
 
 						line1 = ["Frost", "Hunter 1-2 reporting in!", coPilot, "\dubbing\MF\MF01.ogg", 1, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-						sleep 2;
+						sleep 1;
 				
 						line1 = ["You", "Status, Frost?", player, 2, 0, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-						sleep 2; 
+						sleep 0.5; 
 				
 						line1 = ["Frost", "Bird's gunned up, ready to roll, sir.", coPilot, "\dubbing\MF\MF02.ogg", 1, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-						sleep 3; 
+						sleep 0.5;
 					
 						line1 = ["You", "No time to waste then.", player, 2, 0, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
-						sleep 3; 
+						sleep 0.5;
 				
 						line1 = ["Frost", "Affirmative, sir! Wheels up ASAP.", coPilot, "\dubbing\MF\MF03.ogg", 1, "3D"];
 						[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
@@ -77,6 +77,8 @@ sleep 1;
 				waitUntil {player in playerVehicle};
 				[coPilot] joinSilent player;
 				playerVehicle setVehicleLock "LOCKED";
+				
+				saveGame; 
 
 				missionNamespace setVariable ["Task03_Done", true];
 

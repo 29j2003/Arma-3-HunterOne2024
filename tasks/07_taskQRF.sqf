@@ -15,7 +15,7 @@
 // Task script:  
 ////////////////////////////////////////////////////////////////
 missionNamespace setVariable ["qrfInboundAO", false];
-sleep (20 + random 10); 
+sleep (30 + random 10); 
 	[] spawn 
 {
 
@@ -200,7 +200,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 			waitUntil { missionNamespace getVariable ["grp01_Done", true] AND missionNamespace getVariable ["grp02_Done", true] AND missionNamespace getVariable ["grp03_Done", true] AND missionNamespace getVariable ["grp04_Done", true] }; 
 
 			
-			sleep 1; 
+			sleep 2; 
 			
 		
 			missionNamespace setVariable ["Task07_Done", true];
@@ -217,9 +217,12 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 				line1 = ["Longbow","Copy on all. Good work out there. Continue to hold position at Delta. Out.", officerBrief, "\dubbing\RL\RL27.ogg", 1, "UI"];
 				[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		////////////////////////////////////////////////
- 
+		
+			sleep (15 + random 10); 
+			execVM "scripts\tasks\09_taskAir.sqf"; 
 }; 
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
+		
