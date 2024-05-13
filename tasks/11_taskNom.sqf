@@ -8,6 +8,8 @@
 // Task script:  
 ////////////////////////////////////////////////////////////////
 
+			missionNamespace setVariable ["nomSub01", false];
+			missionNamespace setVariable ["nomSub02", false];
 
 {
     _x enableSimulation true;
@@ -68,7 +70,7 @@
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5; 
 
-	line1 = ["Longbow", "Affirmative, Hunter 1-1. Nomad has deployed a drone and is sending the live feed to your HMD. Your primary task is to neutralize those tanks and provide support to Nomad, over.", officerBrief, "\dubbing\RL\RL33.ogg", 1, "UI"];
+	line1 = ["Longbow", "Affirmative, Hunter 1-1. Nomad has deployed a drone and is sending the live feed to your HMD. Your primary task is to neutralize those tanks and provide support to Nomad-", officerBrief, "\dubbing\RL\RL33.ogg", 1, "UI"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5;  
 
@@ -82,8 +84,15 @@
 	//////////////////////
 	line1 = ["You", "Solid copy, Longbow. Fire mission at Kalochori, support Nomad, resupply at Charika if needed. Hunter 1-1 is Oscar Mike, out.", player, 5, 1, "3D"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-	sleep 5;
+	sleep 1;
 
+	line1 = ["You", "Got that Frost?", player, 2, 1, "3D"];
+	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+	sleep 0.5; 
+	
+	line1 = ["Frost", "Got it! Linking up with the drone now.", coPilot, "\dubbing\MF\MF21.ogg", 1, "UI"];
+	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+	sleep 0.5;
 	
 		// Line player
 		//
@@ -134,13 +143,13 @@
 			
 			waitUntil { !alive aafMBT01 || !alive aafMBT02}; 
 					
-					line1 = ["Frost", "One destroyed, one to go.", coPilot, "\dubbing\MF\MF11.ogg", 0, "3D"];
+					line1 = ["Frost", "One destroyed, one to go.", coPilot, "\dubbing\MF\MF11.ogg", 1, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 					sleep 0.5;			
 			
 			waitUntil { !alive aafMBT01 AND !alive aafMBT02};  
 
-					line1 = ["Frost", "Boom. We got 'em.", coPilot, "\dubbing\MF\MF12.ogg", 0, "3D"];
+					line1 = ["Frost", "Boom. We got 'em.", coPilot, "\dubbing\MF\MF12.ogg", 1, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;	
 
 					// Finish sub-task here: 
@@ -160,9 +169,8 @@
 					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP;
 					
 					waitUntil { !alive aafMBT01 }; 
-					sleep 2; 
 					call BIS_fnc_liveFeedTerminate; 
-					sleep 1; 
+					sleep 4; 
 					
 					[LiveDroneSource, aafMBT02, player] call BIS_fnc_liveFeed;
 					sleep 1; 
@@ -185,6 +193,9 @@
 			waitUntil { {alive _x} count (units aafGroup01) < 2}; 
 			missionNamespace setVariable ["nomSub02", true];
 			["T13", "SUCCEEDED", true] call BIS_fnc_taskSetState;
+			
+			line1 = ["Frost", "Greenbacks have been neutralized.", coPilot, "\dubbing\MF\MF14.ogg", 1, "3D"];
+			[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 			}; 
 			
 			/////////////
@@ -198,15 +209,12 @@
 
 
 			waitUntil {  ({alive _x} count (units natoNOMADS)) < 4  }; // 
-			nomadSL sideChat "";
 			//playSound 
 
 			waitUntil {  ({alive _x} count (units natoNOMADS)) < 2  }; // 20 percent
-			nomadSL sideChat "";
 			//playSound 
 
 			waitUntil {  ({alive _x} count (units natoNOMADS)) == 1  }; // = 1 remaining (SL stays alive for Voice Line, then gets killed of if needed) 
-			nomadSL sideChat "";
 			nomadSL allowDamage true; 
 
 			sleep 2; 
@@ -228,9 +236,7 @@
 
 			["NomadDead", false, true, true, false] call BIS_fnc_endMission;
 			}; 
-			
-			missionNamespace setVariable ["nomSub01", false];
-			missionNamespace setVariable ["nomSub02", false];
+		
 			/////////////
 			/////////////
 			
@@ -238,4 +244,4 @@
 			["T11", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 			
 			// New Task: 
-			execVM ""; 
+			execVM "tasks\12_taskGetBack.sqf"; 

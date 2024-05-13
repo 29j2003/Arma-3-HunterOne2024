@@ -130,7 +130,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;		
 		sleep 0.5; 
 		
-		line1 = ["Frost", "Copy, engaging!", coPilot, "\dubbing\MF\MF09.ogg", 1, "UI"];
+		line1 = ["Frost", "Copy – engaging convoy!", coPilot, "\dubbing\MF\MF09.ogg", 1, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 		
@@ -219,7 +219,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		////////////////////////////////////////////////
 		
 			sleep (15 + random 10); 
-			execVM "scripts\tasks\09_taskAir.sqf"; 
+			execVM "tasks\09_taskAir.sqf"; 
 }; 
 
 ////////////////////////////////////////////////////////////
