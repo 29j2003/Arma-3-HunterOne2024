@@ -15,7 +15,7 @@
 // Task script:  
 ////////////////////////////////////////////////////////////////
 missionNamespace setVariable ["qrfInboundAO", false];
-sleep (30 + random 10); 
+sleep (40 + random 10); 
 	[] spawn 
 {
 
@@ -217,7 +217,8 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 				line1 = ["Longbow","Copy on all. Good work out there. Continue to hold position at Delta. Out.", officerBrief, "\dubbing\RL\RL27.ogg", 1, "UI"];
 				[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		////////////////////////////////////////////////
-		
+				saveGame; 
+			
 			sleep (15 + random 10); 
 			execVM "tasks\09_taskAir.sqf"; 
 }; 

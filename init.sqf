@@ -13,7 +13,7 @@ missionNamespace setVariable ["Task09_Done", false];
 missionNamespace setVariable ["Task10_Done", false];
 
 // execute Intro script: 
-//execVM "scripts\p1\introPlayer.sqf"; 
+execVM "scripts\p1\introPlayer.sqf"; 
 
 // executes first task: 
 execVM "tasks\01_taskBrief.sqf"; 

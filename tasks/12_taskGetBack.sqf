@@ -7,9 +7,11 @@
 // Task Spawn: 
 ////////////////////////////////////////////////////////////////
 
+hint "Mission Completed (Placeholder) "; 
 
+sleep 5; 
 
-
+endMission; 
 
 
 

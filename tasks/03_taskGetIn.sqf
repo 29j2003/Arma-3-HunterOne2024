@@ -78,6 +78,8 @@ sleep 1;
 				[coPilot] joinSilent player;
 				playerVehicle setVehicleLock "LOCKED";
 				
+				[["Vehicle","TakeOff"]] call BIS_fnc_advHint;
+				
 				saveGame; 
 
 				missionNamespace setVariable ["Task03_Done", true];

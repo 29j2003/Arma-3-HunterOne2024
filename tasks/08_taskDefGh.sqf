@@ -8,7 +8,9 @@
 
 	// Task creation: 
 	[west, ["T08", "MainTask"], ["Ghost 2-1 has landed and is picking up the remaining forces of Delta - defend them!", "Defend Ghost 2-1!", "marker"], evacHELO, "ASSIGNED", 1, true, "defend", true] call BIS_fnc_taskCreate; 
-
+		saveGame; 
+		
+		missionNamespace setVariable ["ghostEvacReturning", false];
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
@@ -39,7 +41,7 @@
 			
 				{_x enableAI "ALL"} foreach units group HO_SquadLead;
 				{_x assignAsCargo evacHELO} foreach units group HO_SquadLead;
-				HO_SquadLead orderGetIn true; 
+				{[_x] orderGetIn true} foreach units group HO_SquadLead;  
 				sleep 60; 
 
 				[] spawn 
@@ -57,28 +59,29 @@
 					};
 				}; 
 				
-				waitUntil { missionNamespace getVariable ["Task07_Done", true] };
+				waitUntil { missionNamespace getVariable ["Task09_Done", true] };
+				sleep 5; 
 				
 				[] spawn 
 					{
-						missionNamespace setVariable ["ghostEvacReturning", false];
-
-						waitUntil {missionNamespace getVariable ["ghostEvacReturning", true];};
+						
+						ghostReturn = true; 
+						evacHELOd enableAI "all"; 
+						missionNamespace setVariable ["Task08_Done", true];
+						
 						sleep 2; 
 	
 						line1 = ["Ghost 2-1", "Ghost 2-1 to Longbow. Package is secure. RTB, over.", evacHELOD, 1, 2, "UI"];
 						[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
-						sleep 4; 
+						sleep 1; 
 
 						line1 = ["Longbow", "Copy that, Ghost 2-1. Medical personnel are on standby. Safe journey, out.", officerBrief, "\dubbing\RL\RL24.ogg", 1, "UI"];
 						[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
+						sleep 1;
 					};
 				
-				
-				missionNamespace setVariable ["ghostEvacReturning", true];
-				missionNamespace setVariable ["Task08_Done", true];
-				ghostReturn = true; 
-				evacHELOd enableAI "all"; 
+
+
 }; 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,12 +114,13 @@
 
 
 
-
 			// needed condition to finish it: 
 			waitUntil { missionNamespace getVariable ["Task08_Done", true] };
 			
 			// finish task: 
 			["T08", "SUCCEEDED", true] call BIS_fnc_taskSetState;
+			
+				sleep 15; 
 			
 			// New task if needed: 
 			execVM "tasks\10_taskFakeR.sqf";

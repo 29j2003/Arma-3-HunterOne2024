@@ -20,6 +20,8 @@
 
 // qrfAirSupport01
 
+	sleep (10 + random 5); 
+	
 	qrfAirSupport01 enableSimulation true; 
 	qrfAirSupport01 hideObject false; 
 	qrfAirSupport01 doMove (position HO_SquadLead);
@@ -41,6 +43,7 @@
 	
 	waitUntil { !alive qrfAirSupport01 }; 
 	sleep 2; 
+		saveGame; 
 		
 		["T09", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 		line1 = ["Frost", "She's going down!", coPilot, "\dubbing\MF\MF10.ogg", 1, "UI"];
@@ -57,4 +60,9 @@
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 	
+	sleep 10; 
+	missionNamespace setVariable ["ghostEvacReturning", true];
+	missionNamespace setVariable ["Task09_Done", true];
+	
+	saveGame; 
 	// new task if needed: 

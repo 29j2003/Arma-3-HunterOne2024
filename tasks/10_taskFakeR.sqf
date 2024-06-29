@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////////
 
 
-			
+			sleep 5; 
 			
 				line1 = ["You", "Hunter 1-1 to Longbow. All threats have been neutralized; Ghost 2-1 secured the package. Awaiting further instructions. Over.", player, 4, 1, "3D"];
 				[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;

@@ -94,6 +94,8 @@
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5;
 	
+	saveGame; 
+	
 		// Line player
 		//
 		sleep 0.5; 
@@ -163,7 +165,7 @@
 			{
 					// Drone Stream: 
 					[LiveDroneSource, aafMBT01, player] call BIS_fnc_liveFeed;
-					sleep 1; 
+					sleep 0.5; 
 					BIS_liveFeed camPrepareFOV 0.1;
 					BIS_liveFeed camCommitPrepared 0;
 					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP;
@@ -173,7 +175,7 @@
 					sleep 4; 
 					
 					[LiveDroneSource, aafMBT02, player] call BIS_fnc_liveFeed;
-					sleep 1; 
+					sleep 0.5; 
 					BIS_liveFeed camPrepareFOV 0.1;
 					BIS_liveFeed camCommitPrepared 0;
 					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 					
