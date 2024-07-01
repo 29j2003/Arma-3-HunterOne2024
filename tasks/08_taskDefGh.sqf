@@ -65,6 +65,11 @@
 				[] spawn 
 					{
 						
+						{_x moveInCargo evacHELO} foreach units group HO_SquadLead;	
+						{_x assignAsCargo evacHELO} foreach units group HO_SquadLead;
+						evacHELO AllowCrewInImmobile true; 
+						evacHELO setVehicleLock "LOCKED"; 
+						
 						ghostReturn = true; 
 						evacHELOd enableAI "all"; 
 						missionNamespace setVariable ["Task08_Done", true];

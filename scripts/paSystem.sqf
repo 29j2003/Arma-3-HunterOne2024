@@ -6,6 +6,7 @@ missionNamespace setVariable ['paSystemOn', false];
 
 waitUntil {missionNamespace getVariable ['paSystemOn', true]};
 
+sleep 6; 
 
 
 [] spawn {
