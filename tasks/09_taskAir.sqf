@@ -56,7 +56,7 @@
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 
-		line1 = ["Longbow", "Roger that, Hunter 1-1.", officerBrief, "\dubbing\RL\RL23.ogg", 1, "UI"]; hint "Place holder, needs re-adjusting";
+		line1 = ["Longbow", "Roger that, Hunter 1-1. Out", officerBrief, "\dubbing\RL\RL29.ogg", 1, "UI"]; 
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 	

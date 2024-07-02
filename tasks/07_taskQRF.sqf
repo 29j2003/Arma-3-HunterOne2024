@@ -110,7 +110,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		
 		
 		// Line
-		line1 = ["Longbow", "Hunter 1-1, this is Longbow. Recon have reported an enemy convoy moving towards Delta's AO, over.", officerBrief, "\dubbing\RL\RL25.ogg", 1.5, "UI"];
+		line1 = ["Longbow", "Hunter 1-1, this is Longbow. Recon have reported an enemy convoy moving towards Delta's AO-", officerBrief, "\dubbing\RL\RL25.ogg", 1.5, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 		sleep 0.5; 
 
@@ -192,6 +192,7 @@ waitUntil { missionNamespace getVariable ["qrfInboundAO", true] };
 		waitUntil {  {alive _x} count (units qrfGroup04) < 3}; // Transport Units
 			{ _x setDamage 1; } forEach units qrfGroup04;
 			missionNamespace setVariable ["grp04_Done", true];
+			["T07sub04", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 		};
 		//////////////////////////////
 		//////////////////////////////

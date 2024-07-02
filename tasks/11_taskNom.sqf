@@ -44,6 +44,7 @@
 	// Variable that activates trigger for Orbat change (if working);!!!!needs changing stillL!!!!!
 	FrontLineChange = true; 
 
+	playMusic "LeadTrack01_F_6th_Anniversary_Remix";
 
 	line1 = ["Longbow", "Hunter 1-1, break off current engagement. New orders incoming, over.", officerBrief, "\dubbing\RL\RL31.ogg", 1, "UI"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
@@ -53,7 +54,7 @@
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5;  
 
-	line1 = ["Longbow", "Hunter 1-1, you are to conduct a fire support mission in vicinity of Kalochori. Callsign Nomad has encountered two enemy AAF tanks in the AO, over.", officerBrief, "\dubbing\RL\RL32.ogg", 1, "UI"];
+	line1 = ["Longbow", "Hunter 1-1, you are to conduct a fire support mission in vicinity of Kalochori. Callsign Nomad has encountered two enemy AAF tanks in the AO, over!", officerBrief, "\dubbing\RL\RL32.ogg", 1, "UI"];
 	[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 	sleep 0.5;  
 	//////////////////////
