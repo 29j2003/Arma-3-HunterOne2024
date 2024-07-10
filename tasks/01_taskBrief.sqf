@@ -202,7 +202,7 @@ officerBrief disableAI "ALL";
 		sleep 0.5; 
 		
 		// Line PL03: 
-		line1 = ["You", "Sir.", player, 3, 0, "3D"];
+		line1 = ["You", "Sir.", player, 1, 1, "3D"];
 		[[line1], "BLUFOR", false, true] call HO_fnc_simpleConv;
 		
 		// Enable Movement again: 

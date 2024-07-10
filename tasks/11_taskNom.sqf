@@ -8,6 +8,8 @@
 // Task script:  
 ////////////////////////////////////////////////////////////////
 
+sleep 8; 
+
 			missionNamespace setVariable ["nomSub01", false];
 			missionNamespace setVariable ["nomSub02", false];
 
@@ -143,14 +145,13 @@
 			// CoPilot Talking: 
 			[] spawn 
 			{ 
-			
-			waitUntil { !alive aafMBT01 || !alive aafMBT02}; 
-					
+			 
+			waitUntil { (!alive aafMBT01 || {alive _x} count (crew vehicle aafMBT01) == 0) || (!alive aafMBT02 || {alive _x} count (crew vehicle aafMBT02) == 0) }; 
 					line1 = ["Frost", "One destroyed, one to go.", coPilot, "\dubbing\MF\MF11.ogg", 1, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
 					sleep 0.5;			
 			
-			waitUntil { !alive aafMBT01 AND !alive aafMBT02};  
+			waitUntil { (!alive aafMBT01 || {alive _x} count (crew vehicle aafMBT01) == 0) AND (!alive aafMBT02 || {alive _x} count (crew vehicle aafMBT02) == 0) }; 
 
 					line1 = ["Frost", "Boom. We got 'em.", coPilot, "\dubbing\MF\MF12.ogg", 1, "3D"];
 					[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;	
@@ -171,7 +172,7 @@
 					BIS_liveFeed camCommitPrepared 0;
 					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP;
 					
-					waitUntil { !alive aafMBT01 }; 
+					waitUntil { (!alive aafMBT01 || {alive _x} count crew aafMBT01 == 0) }; 
 					call BIS_fnc_liveFeedTerminate; 
 					sleep 4; 
 					
@@ -179,12 +180,16 @@
 					sleep 0.5; 
 					BIS_liveFeed camPrepareFOV 0.1;
 					BIS_liveFeed camCommitPrepared 0;
-					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 					
+					[ [ 1.1, 0.8 ], 1.5 ] call HO_fnc_resizePIP; 
+					
+					waitUntil { (!alive aafMBT02 ||  {alive _x} count crew aafMBT02 == 0) }; 
+					call BIS_fnc_liveFeedTerminate; 
+					
 			}; 
 			////////////////////////////////////
 			////////////////////////////////////
 			////////////////////////////////////
-			
+			//
 			////////////////////////////////////
 			// SubTask AAF Inf: 
 			////////////////////////////////////
@@ -205,7 +210,7 @@
 			/////////////
 			// SubTask Hit conditions: 
 			[] spawn 
-			{ 
+			{
 			waitUntil {  ({alive _x} count (units natoNOMADS)) < 6  }; // 80 percent
 			//nomadSL sideChat "";
 			//playSound 

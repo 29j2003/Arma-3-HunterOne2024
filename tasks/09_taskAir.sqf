@@ -20,16 +20,17 @@
 
 // qrfAirSupport01
 
-	sleep (10 + random 5); 
+	sleep (25 + random 5); 
 	
 	qrfAirSupport01 enableSimulation true; 
 	qrfAirSupport01 hideObject false; 
 	qrfAirSupport01 doMove (position HO_SquadLead);
 	
-	
+
 	
 	sleep 10; 
-
+	
+		// play Music hier? 
 
 		line1 = ["Longbow", "Hunter 1-1, this is Longbow. Enemy gunship inbound to your AO. Engage and neutralize before it reaches Delta, over!", officerBrief, "\dubbing\RL\RL28.ogg", 1, "UI"];
 		[[line1], "BLUFOR", false, false] call HO_fnc_simpleConv;
